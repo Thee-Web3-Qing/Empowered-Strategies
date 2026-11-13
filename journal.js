@@ -128,23 +128,36 @@ function bespokeHero(main,page){
  '<div class="z-page-bottom"><span>ADVISE / EQUIP / TRANSFORM</span><span>INSTITUTIONAL TRANSFORMATION THROUGH EVIDENCE</span></div></div></section>';
 }
 function redesignServices(main){
- var collection=main.querySelector('.detail-collection');if(!collection)return;
- var groups=Array.from(collection.querySelectorAll('.detail-group'));
- var rows=groups.map(function(group,i){
-  var title=group.querySelector('h2')?.textContent||'';
-  var intro=group.querySelector('.lead')?.textContent||'';
-  var detail=group.querySelectorAll('li');
-  var n=String(i+1).padStart(2,'0');
-  return '<details class="z-expert-item" id="service-'+(i+1)+'"'+(i===0?' open':'')+'><summary>'+
-  '<span class="z-index">['+n+']</span><h2>'+title+'</h2><span class="z-expert-plus" aria-hidden="true">↗</span></summary>'+
-  '<div class="z-expert-inner"><p>'+intro+'</p><div class="z-expert-meta">'+Array.from(detail).map(function(li){return '<span>'+li.textContent+'</span>';}).join('')+'</div>'+
-  cta('/contact','Discuss This Service','z-btn-dark')+'</div></details>';
- }).join('');
- collection.closest('section').outerHTML='<section class="z-expertise-layout"><div class="z-expertise-top">'+small('THE SERVICE INDEX / 01—06')+
- '<p>Our services are interconnected, but every engagement begins by understanding your institutional context.</p></div>'+
- '<div class="z-expertise-grid"><aside><div class="z-expertise-aside">'+img('strategy','','academy-workshop.svg')+
- '<span>EDUCATION. EVIDENCE. POSSIBILITY.</span><div class="z-expertise-deco">06</div></div></aside>'+
- '<div class="z-expertise-rows">'+rows+'</div></div></section>';
+ var areas=[
+  ['Education Strategy & Policy','/what-we-do#service-1','layers','Policy design, strategic planning and education systems advisory.'],
+  ['Institutional Transformation','/what-we-do#service-2','school','Diagnostics, governance and institutional improvement.'],
+  ['Leadership Development','/what-we-do#service-3','people','Leadership and board advisory for stronger institutions.'],
+  ['Professional Learning','/what-we-do#service-4','book','Educator development, professional learning and capacity building.'],
+  ['Research & Evidence','/what-we-do#service-5','chart','Research, evaluation, monitoring and evidence use.'],
+  ['Digital Learning & Innovation','/what-we-do#service-6','laptop','Responsible AI, digital education and future-ready learning.']
+ ];
+ function pict(kind){
+  var paths={
+   layers:'<path d="m12 2 10 5-10 5L2 7l10-5ZM2 12l10 5 10-5M2 17l10 5 10-5"/>',
+   school:'<path d="M2 10 12 3l10 7-10 7L2 10Zm4 4v5c4 3 8 3 12 0v-5M22 10v7"/>',
+   people:'<circle cx="8" cy="8" r="4"/><circle cx="18" cy="9" r="3"/><path d="M1 22v-2c0-5 3-7 7-7s7 2 7 7v2M16 14c4 0 7 2 7 6v2"/>',
+   book:'<path d="M12 6C9 3 5 3 2 4v16c4-1 8-1 10 2 2-3 6-3 10-2V4c-3-1-7-1-10 2Zm0 0v16"/>',
+   chart:'<path d="M2 22h20M4 14h4v8H4zM10 9h4v13h-4zM16 3h4v19h-4z"/>',
+   laptop:'<rect x="4" y="3" width="16" height="13" rx="1"/><path d="m1 21 3-5h16l3 5H1Z"/>',
+   target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/><path d="m12 12 9-10"/>',
+   sliders:'<path d="M3 5h18M3 12h18M3 19h18"/><circle cx="9" cy="5" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="7" cy="19" r="2"/>'
+  };
+  return '<svg viewBox="0 0 24 24" width="37" height="37" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(paths[kind]||paths.layers)+'</svg>';
+ }
+ var cards=areas.map(function(a,i){return '<a id="service-'+(i+1)+'" class="ww-service" href="'+a[1]+'" aria-label="'+a[0]+': '+a[3]+'"><span class="ww-service-icon">'+pict(a[2])+'</span><span class="ww-service-name">'+a[0]+'</span><span class="ww-service-arrow">↗</span></a>';}).join('');
+ main.innerHTML=[
+ '<section class="ww-intro"><div class="ww-intro-copy"><span class="ww-kicker">OUR WORK IN FOCUS</span><div class="ww-intro-row"><h1>We turn<br>strategy into<br><em>measurable<br>change.</em></h1><p>A suite of services that strengthen education from policy to practice.</p></div></div><div class="ww-intro-photo">'+img('learning','','academy-workshop.svg')+'</div></section>',
+ '<section class="ww-services" aria-label="Six areas of expertise">'+cards+'</section>',
+ '<section class="ww-statement"><div><span class="ww-kicker">WHAT WE DO</span><h2>Practical solutions<br>for stronger<br><em>education systems.</em></h2></div><p>We work with governments, institutions and education leaders to design, implement and strengthen the systems, people and programmes that drive better learning and lasting impact.</p></section>',
+ '<section class="ww-approach"><div class="ww-approach-photo">'+img('leadership','','solution-leadership.svg')+'</div><div class="ww-approach-copy"><span class="ww-kicker">OUR APPROACH</span><h2>How We Create<br><em>Impact.</em></h2><div class="ww-principles"><div>'+pict('target')+'<p>Evidence-led<br>and practical.</p></div><div>'+pict('layers')+'<p>Context-driven<br>and sustainable.</p></div><div>'+pict('people')+'<p>People and<br>systems focused.</p></div></div></div></section>',
+ '<section class="ww-reach"><div class="ww-reach-heading"><span class="ww-kicker">OUR REACH</span><h2>Across the<br>education<br><em>journey.</em></h2></div><div class="ww-reach-steps"><div>'+pict('school')+'<span>Policy &<br>Planning</span></div><b>→</b><div>'+pict('people')+'<span>Institutional<br>Strengthening</span></div><b>→</b><div>'+pict('school')+'<span>People &<br>Capability</span></div><b>→</b><div>'+pict('sliders')+'<span>Implementation<br>& Scale</span></div></div></section>',
+ '<section class="ww-bottom"><h2>Let’s build stronger<br>education <em>together.</em></h2><a class="ww-bottom-cta" href="/contact">Request a Consultation <span>↗</span></a><img src="/assets/home-solutions-building.webp" alt="Contemporary African institutional architecture" loading="lazy"></section>'
+ ].join('');
 }
 function redesignSolutions(main){
  var sec=main.querySelector('.showcase')?.closest('section');if(!sec)return;
