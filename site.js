@@ -4,7 +4,7 @@
 var EMAIL='hello@empoweredstrategies.ai';
 var ROOT='https://www.empoweredstrategies.ai';
 // Approved brand asset maintained in the Think Tank partner library.
-var BRAND_ASSET='/assets/empowered-logo.webp';
+var BRAND_ASSET='/assets/empowered-logo.webp?v=2';
 var PHOTO_1='/assets/cover-portrait.svg';
 var PHOTO_2='/assets/education-profile.svg';
 var PHOTO_3='/assets/academy-workshop.svg';
@@ -96,7 +96,7 @@ function pageHero(kicker,title,desc,light){
  return '<section class="page-hero'+(light?' product-hero':'')+'">'+visual+inner('<div class="breadcrumb"><a href="/">Home</a><span>/</span>'+kicker+'</div>'+eyebrow(kicker,light)+'<h1>'+title+'</h1><p class="lead">'+desc+'</p>')+'</section>';
 }
 function bigCta(title,desc,alt){return '<section class="section cta-band">'+inner(eyebrow('Let us work together',true)+'<h2>'+title+'</h2><p style="max-width:720px">'+desc+'</p><div class="actions">'+btn('/contact','Request a Consultation')+(alt?btn('/partnerships','Explore Partnerships','btn-outline-light'):'')+'</div>')+'</section>'}
-function brand(){return '<img class="brand-logo" src="'+BRAND_ASSET+'" alt="" decoding="async"><span class="brand-label">Empower<b>ED</b><small>Strategies</small></span>'}
+function brand(){return '<img class="brand-logo" src="'+BRAND_ASSET+'" alt="EmpowerED Strategies" decoding="async"><span class="brand-label">Empower<b>ED</b><small>Strategies</small></span>'}
 function header(path){
  var links='<a href="/"'+(path==='/'?' aria-current="page"':'')+'>Home</a>'+NAV.map(function(x){return '<a href="'+x[1]+'"'+(path===x[1]?' aria-current="page"':'')+'>'+x[0]+'</a>'}).join('');
  return '<header class="site-header"><div class="site-utility"><div class="container utility-row"><span>Education strategy · Research · Institutional transformation</span><span>ADVISE / EQUIP / TRANSFORM</span></div></div><div class="container header-row"><a href="/" class="brand" aria-label="EmpowerED Strategies home">'+brand()+'</a><nav aria-label="Main navigation" class="desktop-nav">'+links+'</nav>'+btn('/contact','Request a Consultation','btn-dark header-cta')+'<button class="menu-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation">☰</button></div><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation"><div class="mobile-nav-inner">'+links+'<a href="/contact">Contact</a>'+btn('/contact','Request a Consultation','btn-primary')+'</div></nav></header>'
