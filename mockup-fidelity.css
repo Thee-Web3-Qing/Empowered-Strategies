@@ -27,7 +27,7 @@ body[data-page="home"] .footer-bottom,body[data-page="services"] .footer-bottom{
 .hf-hero-copy{max-width:380px!important}
 .hf-hero-copy>.hf-kicker{font:600 8px/1.5 "Space Mono",monospace!important;max-width:410px!important;letter-spacing:.12em!important}
 .hf-hero-copy>.hf-kicker:after{display:none!important}
-.hf-hero h1{font-family:"Bodoni Moda",Georgia,serif!important;font-size:clamp(45px,4.35vw,64px)!important;font-weight:400!important;line-height:.99!important;letter-spacing:-.068em!important;max-width:390px!important;margin:15px 0 12px!important}
+.hf-hero h1{font-family:"Instrument Serif",Georgia,serif!important;font-size:clamp(45px,4.35vw,64px)!important;font-weight:400!important;line-height:.99!important;letter-spacing:-.068em!important;max-width:390px!important;margin:15px 0 12px!important}
 .hf-hero h1 em{font-style:italic!important}
 .hf-hero-copy>p{font-size:clamp(11px,.9vw,13px)!important;line-height:1.42!important;max-width:335px!important;margin-bottom:17px!important}
 .hf-actions{display:flex!important;flex-wrap:nowrap!important;gap:10px!important;width:max-content;max-width:calc(100vw - 52px)}
@@ -43,7 +43,7 @@ body[data-page="home"] .footer-bottom,body[data-page="services"] .footer-bottom{
 .hf-two-priorities span{font-size:38px!important}
 .hf-two-priorities p{font-size:10px!important}
 .hf-services{padding:36px clamp(27px,4.8vw,70px) 38px!important;grid-template-columns:43% 57%!important}
-.hf-service-intro h2{font-family:"Syne",sans-serif!important;font-size:clamp(37px,4.35vw,60px)!important;line-height:.91!important;margin:15px 0 16px!important}
+.hf-service-intro h2{font-family:"Anybody","Space Grotesk",sans-serif!important;font-size:clamp(37px,4.35vw,60px)!important;line-height:.91!important;margin:15px 0 16px!important}
 .hf-service-row{min-height:44px!important}
 .hf-service-row:first-child{border-top:0!important}
 .hf-service-name{font-size:clamp(13px,1.3vw,17px)!important;font-weight:500!important}
@@ -52,7 +52,7 @@ body[data-page="home"] .footer-bottom,body[data-page="services"] .footer-bottom{
 .hf-approach-photo{min-height:235px!important;border-top-right-radius:48% 100%!important;border-bottom-right-radius:0!important;overflow:hidden!important}
 .hf-approach-photo img{object-position:center 47%!important}
 .hf-approach-content{padding:23px 22px 20px 34px!important}
-.hf-approach-content h2{font-family:"Syne",sans-serif!important;font-size:clamp(27px,3.2vw,41px)!important;line-height:1.01!important;margin:10px 0 6px!important;letter-spacing:-.065em!important}
+.hf-approach-content h2{font-family:"Anybody","Space Grotesk",sans-serif!important;font-size:clamp(27px,3.2vw,41px)!important;line-height:1.01!important;margin:10px 0 6px!important;letter-spacing:-.065em!important}
 .hf-approach-content>p{font-size:11px!important;line-height:1.4!important;margin:9px 0 12px!important}
 .hf-approach-content .z-btn{min-height:32px!important;padding:8px 12px!important;font-size:10px!important}
 .hf-approach-steps{margin:35px 0!important;padding-left:17px!important;gap:5px!important}
@@ -76,7 +76,7 @@ body[data-page="services"] #main{background:var(--ed-cream);overflow:hidden}
 .ww-intro{height:285px;display:grid;grid-template-columns:50% 50%;background:#fbf3ee;overflow:hidden}
 .ww-intro-copy{padding:25px 0 12px clamp(25px,5.3vw,75px)}
 .ww-intro-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(125px,.68fr);gap:27px;align-items:center}
-.ww-intro h1{font:italic 400 clamp(35px,3.7vw,55px)/.96 "Bodoni Moda",Georgia,serif;letter-spacing:-.055em;color:#3f0d26;margin:11px 0 0}
+.ww-intro h1{font:italic 400 clamp(35px,3.7vw,55px)/.96 "Instrument Serif",Georgia,serif;letter-spacing:-.055em;color:#3f0d26;margin:11px 0 0}
 .ww-intro h1 em,.ww-statement h2 em,.ww-approach h2 em,.ww-reach h2 em,.ww-bottom h2 em{color:#eb263e;font-weight:400}
 .ww-intro-row p{border-left:1px solid #986f7f;padding:15px 0 15px 29px;margin:0;max-width:205px;font:500 13px/1.4 "DM Sans",sans-serif;color:#351025}
 .ww-intro-photo{height:285px;overflow:hidden;border-top-left-radius:48% 100%}
@@ -90,14 +90,14 @@ body[data-page="services"] #main{background:var(--ed-cream);overflow:hidden}
 .ww-statement{display:grid;grid-template-columns:51% 1fr;align-items:center;gap:40px;min-height:240px;padding:32px clamp(25px,5.3vw,75px);color:#fff6f2;background:radial-gradient(circle at 80% 130%,#7d1431,#38091d 65%);position:relative;overflow:hidden}
 .ww-statement:after{content:"";position:absolute;right:-45px;bottom:-220px;width:380px;height:390px;border:45px solid #ed263e;border-radius:50%;pointer-events:none;opacity:.9}
 .ww-statement .ww-kicker{color:#fff;letter-spacing:.25em}
-.ww-statement h2{font:italic 400 clamp(36px,4.1vw,58px)/.99 "Bodoni Moda",Georgia,serif;letter-spacing:-.06em;margin:18px 0 0}
+.ww-statement h2{font:italic 400 clamp(36px,4.1vw,58px)/.99 "Instrument Serif",Georgia,serif;letter-spacing:-.06em;margin:18px 0 0}
 .ww-statement p{font:400 clamp(12px,1.12vw,16px)/1.46 "DM Sans",sans-serif;max-width:410px;border-left:1px solid rgba(255,255,255,.5);padding:6px 0 6px 40px;position:relative;z-index:1}
 .ww-approach{min-height:270px;display:grid;grid-template-columns:46% 54%;background:#3b0b22;color:#fff9f4}
 .ww-approach-photo{overflow:hidden;border-top-right-radius:48% 100%;min-height:270px}
 .ww-approach-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .ww-approach-copy{padding:30px 37px}
 .ww-approach .ww-kicker{color:#fff}
-.ww-approach h2{font:italic 400 clamp(39px,4.1vw,59px)/1 "Bodoni Moda",Georgia,serif;letter-spacing:-.055em;margin:11px 0 20px}
+.ww-approach h2{font:italic 400 clamp(39px,4.1vw,59px)/1 "Instrument Serif",Georgia,serif;letter-spacing:-.055em;margin:11px 0 20px}
 .ww-principles{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
 .ww-principles>div{padding:0 17px;min-width:0}
 .ww-principles>div:first-child{padding-left:0}
@@ -106,13 +106,13 @@ body[data-page="services"] #main{background:var(--ed-cream);overflow:hidden}
 .ww-principles p{font:400 12px/1.3 "DM Sans",sans-serif;margin:7px 0 0}
 .ww-reach{display:grid;grid-template-columns:24% 76%;gap:20px;align-items:center;padding:35px clamp(25px,4.5vw,65px) 24px;min-height:180px}
 .ww-reach-heading{padding-right:25px;border-right:1px solid #9c7785}
-.ww-reach h2{font:italic 400 clamp(31px,3.3vw,48px)/.96 "Bodoni Moda",Georgia,serif;letter-spacing:-.055em;margin:10px 0 0;color:#3a0b24}
+.ww-reach h2{font:italic 400 clamp(31px,3.3vw,48px)/.96 "Instrument Serif",Georgia,serif;letter-spacing:-.055em;margin:10px 0 0;color:#3a0b24}
 .ww-reach-steps{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .ww-reach-steps>div{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:7px;border-radius:15px;background:#f6e7e2;min-height:115px;flex:1;min-width:0;padding:10px 6px;font:500 12px/1.3 "DM Sans",sans-serif}
 .ww-reach-steps>div svg{height:32px;width:32px}
 .ww-reach-steps>b{font-size:25px;font-weight:400;flex:0 0 auto}
 .ww-bottom{position:relative;min-height:135px;margin:5px clamp(22px,2vw,40px) 28px;padding:22px clamp(25px,4vw,60px);display:flex;gap:30px;align-items:center;overflow:hidden;border-radius:29px;background:#40091f;color:#fff7f1;isolation:isolate}
-.ww-bottom h2{font:italic 400 clamp(30px,3.5vw,51px)/1.02 "Bodoni Moda",Georgia,serif;letter-spacing:-.06em;margin:0;z-index:1;flex:0 1 380px}
+.ww-bottom h2{font:italic 400 clamp(30px,3.5vw,51px)/1.02 "Instrument Serif",Georgia,serif;letter-spacing:-.06em;margin:0;z-index:1;flex:0 1 380px}
 .ww-bottom-cta{position:relative;z-index:2;display:flex;align-items:center;gap:12px;padding:12px 19px;background:#fff8ef;color:#3b0c26;border-radius:99px;font:600 11px "DM Sans",sans-serif;white-space:nowrap}
 .ww-bottom img{position:absolute;right:0;top:0;width:37%;height:100%;object-fit:cover;object-position:center 47%;border-top-left-radius:85% 120%;z-index:-1;filter:saturate(1.6)}
 @media(min-width:1500px){.hf-hero{height:690px!important}.ww-intro{height:370px}.ww-intro-photo{height:370px}}
@@ -197,4 +197,49 @@ body[data-page="services"] #main{background:var(--ed-cream);overflow:hidden}
  .ww-bottom{margin:0 16px 25px;padding:26px;min-height:245px;align-items:flex-start;flex-direction:column;gap:18px}
  .ww-bottom h2{flex:none;font-size:39px}
  .ww-bottom img{width:50%;opacity:.48}
+}
+
+/* Approved type direction: editorial serif, expressive width-variable display, compact grotesk and restrained text.
+   Editorial New, Canela and Monument Extended require commercial licenses; these open-licensed
+   production faces implement their visual roles without shipping unlicensed font binaries. */
+:root{--ed-editorial:"Instrument Serif",Georgia,serif;--ed-display:"Anybody","Space Grotesk",sans-serif;--ed-grotesk:"Space Grotesk",sans-serif;--ed-body:"DM Sans",sans-serif;--ed-detail:"Space Mono",monospace}
+body[data-page="home"] .hf-hero h1,
+body[data-page="home"] .hf-solutions-intro h2,
+body[data-page="home"] .hf-impact-main h2,
+body[data-page="services"] .ww-intro h1,
+body[data-page="services"] .ww-statement h2,
+body[data-page="services"] .ww-approach h2,
+body[data-page="services"] .ww-reach h2,
+body[data-page="services"] .ww-bottom h2{font-family:var(--ed-editorial)!important;font-weight:400!important;letter-spacing:-.027em!important}
+body[data-page="home"] .hf-hero h1{font-style:italic!important;line-height:.93!important;letter-spacing:-.02em!important}
+body[data-page="home"] .hf-hero h1 strong{font-weight:400!important}
+body[data-page="home"] .hf-service-intro h2,
+body[data-page="home"] .hf-approach-content h2{font-family:var(--ed-display)!important;font-variation-settings:"wdth" 85,"wght" 850!important;font-weight:850!important;letter-spacing:-.055em!important;text-transform:uppercase!important}
+body[data-page="home"] .hf-service-intro h2{font-variation-settings:"wdth" 106,"wght" 900!important;letter-spacing:-.065em!important}
+body[data-page="home"] .hf-service-name,
+body[data-page="home"] .hf-card-copy h3,
+body[data-page="services"] .ww-service-name{font-family:var(--ed-grotesk)!important;letter-spacing:-.045em!important;font-weight:500!important}
+body[data-page="home"] .hf-hero-copy>p,
+body[data-page="home"] .hf-card-copy p,
+body[data-page="home"] .hf-approach-content>p,
+body[data-page="services"] .ww-intro-row p,
+body[data-page="services"] .ww-statement p,
+body[data-page="services"] .ww-principles p{font-family:var(--ed-body)!important}
+body[data-page="home"] .desktop-nav a,
+body[data-page="services"] .desktop-nav a,
+body[data-page="home"] .header-cta.btn,
+body[data-page="services"] .header-cta.btn,
+body[data-page="home"] .hf-actions .z-btn,
+body[data-page="services"] .ww-bottom-cta{font-family:var(--ed-grotesk)!important}
+body[data-page="home"] .hf-kicker,
+body[data-page="services"] .ww-kicker,
+body[data-page="home"] .hf-num{font-family:var(--ed-detail)!important}
+body[data-page="services"] .ww-intro h1,
+body[data-page="services"] .ww-statement h2,
+body[data-page="services"] .ww-reach h2{font-style:italic!important}
+body[data-page="home"] .hf-impact-main h2,
+body[data-page="home"] .hf-solutions-intro h2{font-style:italic!important}
+@media(max-width:600px){
+ body[data-page="home"] .hf-hero h1{font-size:clamp(48px,10.7vw,58px)!important}
+ body[data-page="services"] .ww-intro h1{font-size:clamp(42px,9.5vw,56px)}
 }
