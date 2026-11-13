@@ -289,6 +289,167 @@ function fixImages(main){
   }
  });
 }
+
+/* Remaining editorial chapters. Read the existing page content before composing
+ * so approved labels, descriptions and service scopes are not replaced. */
+function chEscape(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function chImage(src,alt,extra){return '<img src="/assets/'+src+'" alt="'+chEscape(alt)+'" loading="'+(extra?'eager':'lazy')+'" decoding="async">';}
+function chArrow(){return '<svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19 19 5M8 5h11v11"/></svg>';}
+function chLink(url,title,outline){return '<a href="'+url+'" class="ch-link'+(outline?' ch-link--outline':'')+'">'+chEscape(title)+chArrow()+'</a>';}
+function chKicker(label){return '<span class="ch-kicker">'+chEscape(label)+'</span>';}
+function chText(el,selector,fallback){var x=el.querySelector(selector);return x?x.textContent.trim():(fallback||'');}
+function chTitle(el,selector,fallback){var x=el.querySelector(selector);return x?x.innerHTML:(fallback||'');}
+function chHero(options){
+ return '<section class="ch-hero ch-hero--'+options.kind+'">'+
+ '<div class="ch-hero__copy"><div class="ch-crumb"><a href="/">HOME</a><span>/</span>'+chEscape(options.breadcrumb)+'</div>'+
+ chKicker(options.kicker)+'<h1>'+options.title+'</h1><p>'+chEscape(options.description)+'</p>'+
+ (options.action||'')+'</div><div class="ch-hero__media">'+
+ '<span class="ch-hero__arc" aria-hidden="true"></span>'+chImage(options.image,options.alt||'',true)+
+ (options.caption?'<span class="ch-hero__caption">'+chEscape(options.caption)+'</span>':'')+
+ '</div></section>';
+}
+function chClosing(title,desc,label,url){
+ return '<section class="ch-closing"><div><span class="ch-kicker">LET US WORK TOGETHER</span><h2>'+title+'</h2><p>'+chEscape(desc)+'</p></div>'+chLink(url||'/contact',label||'Request a Consultation')+
+ '<div class="ch-closing__image" aria-hidden="true">'+chImage('home-solutions-building.webp','')+'</div></section>';
+}
+function chOriginal(main){
+ return {title:chTitle(main,'.z-page-cover h1'),description:chText(main,'.z-page-cover p')};
+}
+function chapterResearch(main){
+ var o=chOriginal(main);
+ var topics=Array.from(main.querySelectorAll('.topic-grid article')).map(function(el){
+  return {name:chText(el,'h3'),desc:chText(el,'p')};
+ });
+ var publications=Array.from(main.querySelectorAll('.showcase article')).map(function(el){
+  return {name:chText(el,'h3'),desc:chText(el,'p')};
+ });
+ var forum=main.querySelector('.research-letter');
+ var forumTitle=forum?chText(forum,'h3'):'Where evidence meets the people shaping education.';
+ var forumPs=forum?Array.from(forum.querySelectorAll('p')).map(function(p){return p.textContent.trim();}):[];
+ var closing=main.querySelector('.cta-band');
+ main.innerHTML=[
+ chHero({kind:'research',breadcrumb:'Research & Insights',kicker:'RESEARCH & INSIGHTS / EDITION 06',
+  title:o.title,description:o.description,
+  image:'research-editorial.webp',alt:'African researcher carefully examining research findings',
+  caption:'RESEARCH  /  EVIDENCE  /  INSIGHT',
+  action:chLink('/contact?subject=Research%20Enquiry','Discuss a Research Project')}),
+ '<section class="ch-research-intro"><div>'+chKicker('RESEARCH PRIORITIES')+'<h2>The questions<br>worth <em>asking.</em></h2></div><p>Seven interconnected areas of enquiry across education systems, leadership, inclusion and the future of learning.</p></section>',
+ '<section class="ch-research-index"><div class="ch-research-index__list">'+topics.map(function(t,i){
+   return '<article class="ch-research-topic"><span class="ch-count">0'+(i+1)+'</span><div><h3>'+chEscape(t.name)+'</h3><p>'+chEscape(t.desc)+'</p></div>'+chArrow()+'</article>';
+  }).join('')+'</div><div class="ch-research-index__visual">'+chImage('home-purpose-researcher.webp','Education researcher reviewing documents beside a laptop')+
+ '<span>KNOWLEDGE THAT<br>INFORMS ACTION.</span></div></section>',
+ '<section class="ch-publications"><div class="ch-publications__head">'+chKicker('RESEARCH & PUBLISHING')+'<div><h2>Our publication<br><em>series.</em></h2><p>Planned editorial series and research formats. Publication dates and reports will appear here when verified material is ready.</p></div></div>',
+ '<div class="ch-publications__grid">'+publications.map(function(p,i){
+   return '<article class="ch-publication"><div class="ch-publication__top"><span>'+String(i+1).padStart(2,'0')+'</span><span>PLANNED SERIES</span></div><div><h3>'+chEscape(p.name)+'</h3><p>'+chEscape(p.desc)+'</p></div><span class="ch-publication__line"></span></article>';
+  }).join('')+'</div><p class="ch-integrity-note">No unpublished research articles, fabricated reports or unconfirmed publication dates are presented as published work.</p></section>',
+ '<section class="ch-forum"><div class="ch-forum__media">'+chImage('about-hero-team.webp','African education leaders discussing plans together')+'</div><div class="ch-forum__copy">'+chKicker('THE FUTURE OF LEARNING FORUM / PROPOSED INITIATIVE')+
+ '<h2>'+chEscape(forumTitle)+'</h2>'+forumPs.map(function(p){return '<p>'+chEscape(p)+'</p>';}).join('')+
+ chLink('/contact?subject=Forum%20Enquiry','Discuss the Forum')+'</div></section>',
+ chClosing(chTitle(closing,'h2','Make better decisions with better evidence.'),chText(closing,'p','We collaborate on research and evaluation.'),'Discuss a Research Project','/contact?subject=Research%20Enquiry')
+ ].join('');
+}
+function chapterImpact(main){
+ var o=chOriginal(main);
+ var list=Array.from(main.querySelectorAll('.impact-list article')).map(function(el){return{name:chText(el,'h3'),desc:chText(el,'p')};});
+ var note=main.querySelector('.notice');
+ main.innerHTML=[
+ chHero({kind:'impact',breadcrumb:'Our Impact',kicker:'OUR IMPACT / EDITION 07',title:o.title,description:o.description,
+ image:'home-impact-portrait.webp',alt:'African professional in a thoughtful editorial portrait',caption:'STRONGER INSTITUTIONS. / BETTER OUTCOMES.'}),
+ '<section class="ch-impact-intro"><div>'+chKicker('WHAT WE MEASURE')+'<h2>Progress you can<br><em>recognise.</em></h2></div><p>Our approach focuses on changes in institutional capability, professional readiness, evidence use and lasting improvement.</p></section>',
+ '<section class="ch-impact-list">'+list.map(function(item,i){return '<article class="ch-impact-item"><span class="ch-count">0'+(i+1)+'</span><div><h3>'+chEscape(item.name)+'</h3><p>'+chEscape(item.desc)+'</p></div><span class="ch-impact-item__ray" aria-hidden="true"></span></article>';}).join('')+'</section>',
+ '<section class="ch-impact-story"><div class="ch-impact-story__photo">'+chImage('home-hero-campus.webp','Two students walking up the steps of a modern African university campus')+'</div><div class="ch-impact-story__copy">'+chKicker('PROJECTS & CASE STUDIES')+
+ '<h2>Turning strategy into<br><em>demonstrable progress.</em></h2><p>Our case study library will document approved engagements through their challenge, approach, deliverables, outcomes and lessons.</p>'+
+ '<div class="ch-proof"><strong>Evidence matters.</strong><p>'+chEscape(note?note.textContent.replace(/^Evidence matters\.\s*/,'').trim():'Verified engagements and measurable outcomes will be published when approved.')+'</p></div>'+
+ chLink('/contact','Discuss a Similar Engagement')+'</div></section>',
+ '<section class="ch-proof-steps">'+['Challenge','Approach','Deliverables','Outcomes','Lessons'].map(function(t,i){return '<div><span>0'+(i+1)+'</span><strong>'+t+'</strong></div>';}).join('')+'</section>',
+ chClosing('Stronger institutions.<br>Greater opportunities.','Tell us about the outcomes your institution is working towards.','Start a Conversation','/contact')
+ ].join('');
+}
+function chapterPartners(main){
+ var o=chOriginal(main);
+ var partners=Array.from(main.querySelectorAll('.topic-grid article')).map(function(el){return{name:chText(el,'h3'),desc:chText(el,'p')};});
+ var opportunities=Array.from(main.querySelectorAll('.deep-section li')).map(function(el){return el.textContent.trim();});
+ var closing=main.querySelector('.cta-band');
+ main.innerHTML=[
+ chHero({kind:'partners',breadcrumb:'Partnerships',kicker:'PARTNERSHIPS / EDITION 08',title:o.title,description:o.description,
+ image:'partnerships-hero.webp',alt:'African professionals working together on an education strategy',
+ caption:'COLLABORATION / IMPLEMENTATION / IMPACT',
+ action:chLink('/contact?subject=Partnerships','Explore a Partnership')}),
+ '<section class="ch-partners-intro"><div>'+chKicker('WHO WE PARTNER WITH')+'<h2>Connected by a<br><em>shared ambition.</em></h2></div><p>Partnerships draw together institutional perspectives, complementary expertise and a commitment to education outcomes.</p></section>',
+ '<section class="ch-partners-grid">'+partners.map(function(partner,i){
+  return '<article class="ch-partner"><span class="ch-count">'+String(i+1).padStart(2,'0')+'</span><div><h3>'+chEscape(partner.name)+'</h3><p>'+chEscape(partner.desc)+'</p></div></article>';
+ }).join('')+'</section>',
+ '<section class="ch-partners-feature"><div class="ch-partners-feature__photo">'+chImage('about-hero-team.webp','Diverse African education leadership team meeting around a table')+'</div>'+
+ '<div class="ch-partners-feature__statement">'+chKicker('PARTNERSHIP OPPORTUNITIES')+
+ '<h2>Building what no single organisation can do <em>alone.</em></h2><p>Explore where shared priorities, knowledge and implementation capabilities can meet.</p></div></section>',
+ '<section class="ch-opportunities"><div class="ch-opportunities__head"><span>OUR COLLABORATION AREAS</span><span>01 / '+String(opportunities.length).padStart(2,'0')+'</span></div>'+
+ '<div class="ch-opportunities__grid">'+opportunities.map(function(t,i){return '<div class="ch-opportunity"><span>'+String(i+1).padStart(2,'0')+'</span><h3>'+chEscape(t)+'</h3>'+chArrow()+'</div>';}).join('')+'</div></section>',
+ chClosing(chTitle(closing,'h2','Let’s build something that makes a difference.'),chText(closing,'p','Tell us about your institutional priorities.'),'Explore a Partnership','/contact?subject=Partnerships')
+ ].join('');
+}
+function chapterContact(main){
+ var o=chOriginal(main);
+ var form=main.querySelector('#enquiry-form');
+ if(!form)return;
+ var info=main.querySelector('.contact-layout .info');
+ var details=info?info.innerHTML:'';
+ var categories=main.querySelector('.section.quote-wash');
+ var categoryTitle=categories?chText(categories,'h2'):'Find the right conversation.';
+ var categoryIntro=categories?chText(categories,'p'):'Education strategy, research and professional development enquiries.';
+ main.innerHTML=[
+ chHero({kind:'contact',breadcrumb:'Contact',kicker:'CONTACT / EDITION 09',title:o.title,description:o.description,
+ image:'about-hero-team.webp',alt:'African education leaders gathered for an institutional meeting',caption:'LET’S TALK ABOUT WHAT COMES NEXT.'}),
+ '<section class="ch-contact-main"><div class="ch-contact-aside">'+chKicker('GET IN TOUCH')+
+ '<div class="ch-contact-aside__image">'+chImage('home-purpose-educator.webp','African education professional in an editorial portrait')+'</div>'+
+ '<div class="ch-contact-aside__details">'+details+'</div></div>',
+ '<div class="ch-contact-form-panel">'+chKicker('INSTITUTIONAL ENQUIRY')+'<h2>Tell us about<br><em>your priorities.</em></h2>'+
+ '<p>Share a few details to prepare your enquiry email. Your message is sent using your email application.</p><div id="ch-contact-form-slot"></div></div></section>',
+ '<section class="ch-contact-categories"><span>FIND THE RIGHT CONVERSATION</span><h2>'+chEscape(categoryTitle)+'</h2><p>'+chEscape(categoryIntro)+'</p></section>'
+ ].join('');
+ var slot=main.querySelector('#ch-contact-form-slot');
+ if(slot)slot.replaceWith(form);
+ var submit=form.querySelector('button[type="submit"]');
+ if(submit)submit.innerHTML='Compose Enquiry Email '+chArrow();
+}
+function chapterProduct(main){
+ var o=chOriginal(main);
+ var original=main.querySelector('.split.split-center');
+ var why=original?chText(original,'.lead'):'';
+ var support=original?Array.from(original.querySelectorAll('ul li')).map(function(li){return li.textContent.trim();}):[];
+ var steps=Array.from(main.querySelectorAll('.numbered article')).map(function(article){
+  return {title:chText(article,'h3'),desc:chText(article,'p')};
+ });
+ var audience=Array.from(main.querySelectorAll('.pills .pill')).map(function(x){return x.textContent.trim();});
+ var key=window.location.pathname.split('/').filter(Boolean).pop();
+ var map={
+  'ai-ready-education-institution':{title:'The AI-Ready Education Institution',image:'solutions-ai.webp',supportImage:'home-purpose-educator.webp',tag:'AI READINESS'},
+  'institutional-transformation':{title:'Education Institutional Transformation',image:'home-solutions-building.webp',supportImage:'about-hero-team.webp',tag:'INSTITUTIONAL TRANSFORMATION'},
+  'education-leadership':{title:'Education Leadership Excellence',image:'solutions-leadership.webp',supportImage:'about-leadership.webp',tag:'LEADERSHIP'},
+  'research-mel':{title:'Research & Impact Measurement',image:'solutions-research.webp',supportImage:'home-purpose-researcher.webp',tag:'RESEARCH & MEL'}
+ };
+ var c=map[key];if(!c)return;
+ main.innerHTML=[
+ chHero({kind:'product',breadcrumb:'Solutions / '+c.title,kicker:c.tag, title:o.title,description:o.description,
+  image:c.image,alt:c.title+' programme imagery',
+  caption:'ADVISE / EQUIP / TRANSFORM',action:chLink('/contact?subject='+encodeURIComponent(c.title),'Request a Consultation')}),
+ '<section class="ch-product-thesis"><div>'+chKicker('WHY THIS MATTERS')+
+ '<h2>From institutional challenge to <em>meaningful improvement.</em></h2><p>'+chEscape(why)+'</p></div>'+
+ '<div class="ch-product-thesis__photo">'+chImage(c.supportImage,'African education professionals and institutional surroundings')+'</div></section>',
+ '<section class="ch-product-support"><div class="ch-product-support__head">'+chKicker('OUR AREAS OF SUPPORT')+
+ '<h2>What this engagement<br><em>can address.</em></h2></div><div class="ch-product-support__list">'+support.map(function(s,i){
+ return '<div class="ch-product-support__item"><span>'+String(i+1).padStart(2,'0')+'</span><p>'+chEscape(s)+'</p>'+chArrow()+'</div>';
+ }).join('')+'</div></section>',
+ '<section class="ch-product-path"><div class="ch-product-path__head">'+chKicker('OUR ENGAGEMENT PATHWAY')+'<h2>How we work.</h2><p>Each stage builds towards practical, measurable institutional progress.</p></div>'+
+ '<div class="ch-product-path__steps">'+steps.map(function(step,i){
+ return '<article><span>'+String(i+1).padStart(2,'0')+'</span><h3>'+chEscape(step.title)+'</h3><p>'+chEscape(step.desc)+'</p></article>';
+ }).join('')+'</div></section>',
+ (audience.length?'<section class="ch-product-audience">'+chKicker('WHO THIS IS FOR')+'<h2>Designed for the people<br><em>shaping education.</em></h2><div class="ch-product-audience__list">'+audience.map(function(s){
+ return '<span>'+chEscape(s)+'</span>';
+ }).join('')+'</div></section>':''),
+ chClosing('Let’s design the right<br>engagement <em>together.</em>','Tell us about your priorities and explore a practical next step with EmpowerED Strategies.','Request a Consultation','/contact?subject='+encodeURIComponent(c.title))
+ ].join('');
+}
+
 function enhance(){
  var main=document.querySelector('#app #main');if(!main||main.dataset.journal==='3')return;
  var page=document.body.dataset.page||'other';
@@ -299,11 +460,12 @@ function enhance(){
   if(page==='services')redesignServices(main);
   if(page==='solutions')redesignSolutions(main);
   if(page==='academy')redesignAcademy(main);
-  if(page==='research')redesignResearch(main);
+  if(page==='product')chapterProduct(main);
+  if(page==='research')chapterResearch(main);
   if(page==='about')redesignAbout(main);
-  if(page==='impact')redesignImpact(main);
-  if(page==='partnerships')redesignPartners(main);
-  if(page==='contact')redesignContact(main);
+  if(page==='impact')chapterImpact(main);
+  if(page==='partnerships')chapterPartners(main);
+  if(page==='contact')chapterContact(main);
  }
  fixImages(main);
  cleanArrows();
