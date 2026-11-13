@@ -131,7 +131,14 @@ function expertise(){
 }
 function solutions(){
  return pageHero('Solutions','Practical solutions. Meaningful education <span class="italic">transformation.</span>','Structured programmes and institutional engagements that translate complex education challenges into practical improvement.')+
- section('<div class="section-head"><div>'+eyebrow('Signature solutions')+'<h2>Built for the challenges institutions face.</h2></div><p>Every engagement is designed around institutional priorities, capabilities and context.</p></div><div class="showcase">'+SOLUTIONS.map(function(x,i){return '<article><div class="index">0'+(i+1)+' / SOLUTION</div><h3>'+x.title+'</h3><p class="mini" style="letter-spacing:.06em">'+x.strap+'</p><p>'+x.intro+'</p>'+l(x.url,'Explore the solution')+'</article>'}).join('')+'</div>')+
+ section('<div class="section-head"><div>'+eyebrow('Signature solutions')+'<h2>Built for the challenges institutions face.</h2></div><p>Every engagement is designed around institutional priorities, capabilities and context.</p></div><div class="showcase">'+SOLUTIONS.map(function(x,i){var photos=[
+ 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85',
+ 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=85',
+ 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=85',
+ 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1000&q=85',
+ 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1000&q=85',
+ 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85'
+ ];return '<article><div class="solution-image"><img src="'+photos[i]+'" alt="" loading="lazy" decoding="async"><span>0'+(i+1)+'</span></div><div class="index">0'+(i+1)+' / SOLUTION</div><h3>'+x.title+'</h3><p class="mini" style="letter-spacing:.06em">'+x.strap+'</p><p>'+x.intro+'</p>'+l(x.url,'Explore the solution')+'</article>'}).join('')+'</div>')+
  '<section class="section deep-section">'+inner('<div class="split"><div>'+eyebrow('How engagement works',true)+'<h2>A practical pathway from assessment to improvement.</h2></div><div>'+list(['Understand the institutional challenge and its context','Define priorities, outcomes and a realistic plan','Build the capabilities needed to deliver','Support implementation and continuous improvement','Use evidence to evaluate progress'])+'<div class="actions">'+btn('/contact','Discuss an Engagement')+'</div></div></div>')+'</section>';
 }
 function academy(){
