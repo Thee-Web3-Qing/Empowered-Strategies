@@ -117,7 +117,9 @@ function bespokeHero(main,page){
  var issue={about:'02',services:'03',solutions:'04',academy:'05',research:'06',impact:'07',partnerships:'08',contact:'09',product:'P'}[page]||'01';
  var image='';
  if(page==='about'){image='<div class="z-page-photo z-about-photo">'+img('team','','partnerships-people.svg')+'</div>';}
- if(page==='partnerships'){image='<div class="z-page-photo z-partners-photo">'+img('team','','partnerships-people.svg')+'</div>';}
+ if(page==='partnerships'){image='<div class="z-page-photo z-partners-photo"><img src="/assets/partnerships-hero.webp" alt="African leaders collaborating on education initiatives" loading="eager"></div>';}
+ if(page==='research'){image='<div class="z-page-photo z-research-photo">'+img('research','','education-profile.svg')+'</div>';}
+ if(page==='contact'){image='<div class="z-page-photo z-contact-photo">'+img('team','','partnerships-people.svg')+'</div>';}
  if(page==='academy'){image='<div class="z-page-photo z-academy-photo">'+img('learning','','academy-workshop.svg')+'</div>';}
  if(page==='impact'){image='<div class="z-page-photo z-impact-photo">'+img('graduate','','education-profile.svg')+'</div>';}
  if(page==='product'){image='<div class="z-page-photo z-product-photo">'+img('institute','','solution-systems.svg')+'</div>';}
@@ -147,10 +149,10 @@ function redesignServices(main){
  main.innerHTML=[
  '<section class="ww-intro"><div class="ww-intro-copy"><span class="ww-kicker">OUR WORK IN FOCUS</span><div class="ww-intro-row"><h1>We turn<br>strategy into<br><em>measurable<br>change.</em></h1><p>A suite of services that strengthen education from policy to practice.</p></div></div><div class="ww-intro-photo">'+img('learning','','academy-workshop.svg')+'</div></section>',
  '<section class="ww-services" aria-label="Six areas of expertise">'+cards+'</section>',
- '<section class="ww-details"><span class="ww-kicker">SIX AREAS OF EXPERTISE</span><h2>Explore our services.</h2><div class="ww-details-grid">'+detail+'</div></section>',
  '<section class="ww-statement"><div><span class="ww-kicker">WHAT WE DO</span><h2>Practical solutions<br>for stronger<br><em>education systems.</em></h2></div><p>We work with governments, institutions and education leaders to design, implement and strengthen the systems, people and programmes that drive better learning and lasting impact.</p></section>',
  '<section class="ww-approach"><div class="ww-approach-photo">'+img('leadership','','solution-leadership.svg')+'</div><div class="ww-approach-copy"><span class="ww-kicker">OUR APPROACH</span><h2>How We Create<br><em>Impact.</em></h2><div class="ww-principles"><div>'+pict('target')+'<p>Evidence-led<br>and practical.</p></div><div>'+pict('layers')+'<p>Context-driven<br>and sustainable.</p></div><div>'+pict('people')+'<p>People and<br>systems focused.</p></div></div></div></section>',
  '<section class="ww-reach"><div class="ww-reach-heading"><span class="ww-kicker">OUR REACH</span><h2>Across the<br>education<br><em>journey.</em></h2></div><div class="ww-reach-steps"><div>'+pict('school')+'<span>Policy &<br>Planning</span></div><b>→</b><div>'+pict('people')+'<span>Institutional<br>Strengthening</span></div><b>→</b><div>'+pict('school')+'<span>People &<br>Capability</span></div><b>→</b><div>'+pict('sliders')+'<span>Implementation<br>& Scale</span></div></div></section>',
+ '<section class="ww-details"><span class="ww-kicker">SIX AREAS OF EXPERTISE</span><h2>Explore our services.</h2><div class="ww-details-grid">'+detail+'</div></section>',
  '<section class="ww-bottom"><h2>Let’s build stronger<br>education <em>together.</em></h2><a class="ww-bottom-cta" href="/contact">Request a Consultation <span>↗</span></a><img src="/assets/home-solutions-building.webp" alt="Contemporary African institutional architecture" loading="lazy"></section>'
  ].join('');
 }
@@ -189,7 +191,7 @@ function redesignSolutions(main){
 }
 function redesignAcademy(main){
  var oldCards=Array.from(main.querySelectorAll('.academy-list details'));
- var pictures=['solutions-ai.webp','home-academy-learning.webp','home-solutions-building.webp','home-purpose-researcher.webp','about-leadership.webp','solutions-research.webp','about-hero-team.webp','academy-workshop.svg'];
+ var pictures=['solutions-ai.webp','home-academy-learning.webp','home-solutions-building.webp','home-purpose-researcher.webp','about-leadership.webp','solutions-research.webp','about-hero-team.webp','home-purpose-educator.webp'];
  var cards=oldCards.map(function(card,i){
   var title=card.querySelector('h3')?.textContent?.trim()||'Programme';
   var body=card.querySelector('.academy-body')?.innerHTML||'';
@@ -249,7 +251,7 @@ function redesignAbout(main){
  '<section class="ab-foundation" aria-label="Our mission, vision and values">',
  '<div><span class="ab-foundation-icon">◎</span><div><h2>OUR MISSION</h2><p>To strengthen education systems and institutions through evidence-led strategy, research, leadership development, professional learning and responsible innovation.</p></div></div>',
  '<div><span class="ab-foundation-icon">◉</span><div><h2>OUR VISION</h2><p>An education landscape where every institution has the leadership, knowledge, systems and capabilities to deliver meaningful learning opportunities and prepare people for the future.</p></div></div>',
- '<div><span class="ab-foundation-icon">◇</span><div><h2>OUR VALUES</h2><p>Evidence Before Assumptions; Excellence in Practice; Human-Centred Transformation; Integrity and Accountability; Collaboration and Partnership; Innovation with Purpose; Inclusion and Equity</p></div></div>',
+ '<div><span class="ab-foundation-icon">◇</span><div><h2>OUR VALUES</h2><p>Evidence, excellence, people, integrity, collaboration, purposeful innovation and inclusion.</p><details class="ab-values-details"><summary>Read our seven values</summary><ul><li>Evidence Before Assumptions</li><li>Excellence in Practice</li><li>Human-Centred Transformation</li><li>Integrity and Accountability</li><li>Collaboration and Partnership</li><li>Innovation with Purpose</li><li>Inclusion and Equity</li></ul></details><p class="ab-values-tail"</p></div></div>',
  '</section>',
  '<section class="ab-story" id="our-story"><div class="ab-story-photo"><img src="/assets/home-hero-campus.webp" alt="Students walking into a contemporary African university" loading="lazy"></div>',
  '<div class="ab-story-copy"><span class="ab-eyebrow">OUR STORY</span><h2>From insight to<br>real, <em>sustained change.</em></h2>',

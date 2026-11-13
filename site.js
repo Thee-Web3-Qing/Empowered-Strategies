@@ -256,6 +256,14 @@ document.addEventListener('click',function(e){
  if(u.pathname===window.location.pathname&&u.search===window.location.search&&u.hash){return}
  e.preventDefault();history.pushState(null,'',u.pathname+u.search+u.hash);render();window.scrollTo(0,0);
 });
+document.addEventListener('keydown',function(event){
+ if(event.key!=='Escape')return;
+ var menu=document.querySelector('.mobile-nav.open');
+ if(!menu)return;
+ menu.classList.remove('open');
+ var toggle=document.querySelector('.menu-toggle');
+ if(toggle){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation');toggle.focus();}
+});
 window.addEventListener('popstate',function(){render();window.scrollTo(0,0)});
 render();
 })();
