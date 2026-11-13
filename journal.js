@@ -54,7 +54,7 @@ function home(main){
  }).join('');
  main.innerHTML=[
  '<section class="hf-hero" aria-labelledby="home-heading">',
- '<img class="hf-hero-art" src="/assets/home-hero-editorial.avif" alt="Cinematic editorial portrait of an African woman in burgundy, positioned in front of oversized EDUCATION lettering" fetchpriority="high" decoding="async">',
+ '<img class="hf-hero-art" src="/assets/home-hero-editorial.png" alt="Cinematic editorial portrait of an African woman in burgundy, positioned in front of oversized EDUCATION lettering" fetchpriority="high" decoding="async">',
  '<div class="hf-hero-vignette"></div>',
  '<div class="hf-hero-inner"><div class="hf-hero-copy">',
  '<span class="hf-kicker">EDUCATION STRATEGY / RESEARCH / LEADERSHIP / TRANSFORMATION</span>',
