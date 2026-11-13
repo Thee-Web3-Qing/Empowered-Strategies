@@ -160,20 +160,44 @@ function redesignServices(main){
  ].join('');
 }
 function redesignSolutions(main){
- var sec=main.querySelector('.showcase')?.closest('section');if(!sec)return;
- var articles=Array.from(sec.querySelectorAll('.showcase article'));
- var keys=['institute','strategy','team','research','learning','workshop'];
- var falls=['solution-ai.svg','solution-systems.svg','solution-leadership.svg','solution-research.svg','solution-educators.svg','solution-partnership.svg'];
- var blocks=articles.map(function(e,i){
-  var title=e.querySelector('h3')?.textContent||'';
-  var ps=Array.from(e.querySelectorAll('p'));
-  var desc=ps[ps.length-1]?.textContent||'';
-  var href=e.querySelector('a')?.getAttribute('href')||'/contact';
-  return '<a class="z-solution-entry z-solution-entry-'+(i+1)+'" href="'+href+'">'+img(keys[i]||'team','',falls[i]||'solution-ai.svg')+
-  '<div class="z-solution-overlay"><span class="z-index">0'+(i+1)+' / SOLUTION</span><h3>'+title+'</h3><p>'+desc+'</p><span class="z-circle-arrow">↗</span></div></a>';
+ var iconPaths={
+  layers:'<path d="m12 2 10 5-10 5L2 7l10-5ZM2 12l10 5 10-5M2 17l10 5 10-5"/>',
+  school:'<path d="m2 10 10-7 10 7-10 7-10-7Zm4 4v5c4 3 8 3 12 0v-5M22 10v7"/>',
+  people:'<circle cx="8" cy="8" r="4"/><circle cx="18" cy="9" r="3"/><path d="M1 22v-2c0-5 3-7 7-7s7 2 7 7v2M16 14c4 0 7 2 7 6v2"/>',
+  book:'<path d="M12 6C9 3 5 3 2 4v16c4-1 8-1 10 2 2-3 6-3 10-2V4c-3-1-7-1-10 2Zm0 0v16"/>',
+  chart:'<path d="M2 22h20M4 14h4v8H4zM10 9h4v13h-4zM16 3h4v19h-4z"/>',
+  laptop:'<rect x="4" y="3" width="16" height="13" rx="1"/><path d="m1 21 3-5h16l3 5H1Z"/>',
+  compass:'<circle cx="12" cy="12" r="9"/><path d="m16 8-2 6-6 2 2-6 6-2Z"/>',
+  settings:'<circle cx="12" cy="12" r="3"/><path d="M10 2h4l.6 2.5 2.2.9 2.2-1.3 2.8 2.8-1.3 2.2.9 2.2L24 12l-2.6.7-.9 2.2 1.3 2.2-2.8 2.8-2.2-1.3-2.2.9L14 22h-4l-.6-2.5-2.2-.9-2.2 1.3-2.8-2.8 1.3-2.2-.9-2.2L0 12l2.6-.7.9-2.2-1.3-2.2L5 4.1l2.2 1.3 2.2-.9L10 2Z"/>'
+ };
+ function svg(name){return '<svg aria-hidden="true" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">'+(iconPaths[name]||iconPaths.layers)+'</svg>';}
+ var offerings=[
+  {title:'Education<br>Strategy &amp; Policy',description:'Evidence-based strategies and policy support for stronger education systems.',photo:'research',icon:'layers',link:'/what-we-do#service-1'},
+  {title:'Institutional<br>Transformation',description:'Capacity building and systems strengthening for education institutions.',photo:'institute',icon:'school',link:'/what-we-do#service-2'},
+  {title:'Leadership<br>Development',description:'Programmes that equip education leaders to lead, adapt and create impact.',photo:'leadership',icon:'people',link:'/what-we-do#service-3'},
+  {title:'Professional<br>Learning',description:'Practical, context-relevant training for teachers and education professionals.',photo:'workshop',icon:'book',link:'/learning-academy'},
+  {title:'Research &amp;<br>Evidence',description:'Research, data and insights that inform better decisions and stronger outcomes.',photo:'analysis',icon:'chart',link:'/what-we-do#service-5'},
+  {title:'Digital Learning<br>&amp; Innovation',description:'Solutions that integrate technology to improve access, quality and learning.',photo:'strategy',icon:'laptop',link:'/solutions/ai-ready-education-institution'}
+ ];
+ var cards=offerings.map(function(c,i){
+  return '<a class="sol-card" href="'+c.link+'" aria-label="'+c.title.replace(/<[^>]*>/g,'')+'"><div class="sol-card-image">'+img(c.photo,'','solution-systems.svg')+'</div><div class="sol-card-shade"></div><div class="sol-card-content"><span class="sol-card-icon">'+svg(c.icon)+'</span><h3>'+c.title+'</h3><p>'+c.description+'</p></div><span class="sol-card-arrow">'+arrow()+'</span></a>';
  }).join('');
- sec.outerHTML='<section class="z-solution-catalogue"><div class="z-catalogue-heading">'+small('INSTITUTIONAL OFFERINGS')+
- '<h2>Structure meets <em>possibility.</em></h2><p>Choose an area to explore how we can help strengthen your institution.</p></div><div class="z-solution-grid">'+blocks+'</div></section>';
+ var process=[
+  {label:'Discover',description:'Understand needs and opportunities.',icon:'compass'},
+  {label:'Design',description:'Develop practical, contextual solutions.',icon:'layers'},
+  {label:'Implement',description:'Work with partners to bring solutions to life.',icon:'settings'},
+  {label:'Measure',description:'Track progress and drive lasting impact.',icon:'chart'}
+ ].map(function(p,i){return (i?'<span class="sol-process-connector" aria-hidden="true">'+arrow()+'</span>':'')+'<div class="sol-process-step">'+svg(p.icon)+'<h3>'+p.label+'</h3><p>'+p.description+'</p></div>';}).join('');
+ main.innerHTML=[
+ '<section class="sol-hero"><div class="sol-hero-copy"><span class="sol-kicker">SOLUTIONS</span><h1>Practical solutions<br>for stronger<br><em>education systems.</em></h1>',
+ '<p>We design and implement evidence-based solutions that strengthen learning, build institutional capacity and create lasting change across Africa.</p>',
+ '<div class="sol-hero-actions"><a href="/contact" class="sol-button sol-button-light">Request a Consultation '+arrow()+'</a><a href="/what-we-do" class="sol-button sol-button-outline">Explore Our Work '+arrow()+'</a></div></div>',
+ '<div class="sol-hero-photo"><div class="sol-red-orbit"></div>'+img('learning','','education-profile.svg')+'</div></section>',
+ '<section class="sol-offerings"><div class="sol-intro"><div><span class="sol-kicker">OUR SOLUTIONS</span><h2>What<br>We <em>Offer.</em></h2></div><p>A suite of services that translate research, policy and practice into real improvements in learning, teaching and education system performance.</p></div>',
+ '<div class="sol-grid">'+cards+'</div></section>',
+ '<section class="sol-process"><div class="sol-process-intro"><span class="sol-kicker">OUR PROCESS</span><div><h2>How We<br><em>Work.</em></h2><p>A collaborative, evidence-led process that turns complex education challenges into practical, scalable solutions.</p></div></div><div class="sol-process-flow">'+process+'</div></section>',
+ '<section class="sol-closing"><h2>Let’s build stronger<br>education <em>together.</em></h2><a href="/contact" class="sol-button sol-button-light">Request a Consultation '+arrow()+'</a><img src="/assets/home-solutions-building.webp" alt="" loading="lazy"></section>'
+ ].join('');
 }
 function redesignAcademy(main){
  var top=main.querySelector('.feature-split');
