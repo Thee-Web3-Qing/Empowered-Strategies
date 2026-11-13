@@ -1,0 +1,302 @@
+
+/*
+  EmpowerED Strategies / editorial issue 02
+  Layout references: dark typographic cover, burgundy portfolio,
+  red-on-paper poster systems and structured editorial decks.
+  No invented KPIs, partner marks or case-study results are used.
+*/
+:root{
+  --ink:#281728; --plum:#50214F; --deep:#160E1B; --berry:#E73743;
+  --cream:#F8F4EE; --paper:#FFFDF8; --sand:#EDE3DD;
+  --muted:#6C6167; --line:#D8C9D1;
+  --font-display:"Unbounded",sans-serif;
+  --font-poster:"Syne",sans-serif;
+  --font-soft:"Bricolage Grotesque",sans-serif;
+  --font-contrast:"Bodoni Moda",Georgia,serif;
+  --font-mono:"Space Mono",monospace;
+}
+body{background:var(--cream);color:var(--ink)}
+.site-header{transition:background .25s ease,border .25s ease}
+.header-row .brand{max-width:230px}
+.brand{position:relative;display:inline-flex;align-items:center;min-height:44px}
+.brand-logo{display:none;max-width:190px;max-height:49px;width:auto;height:auto;object-fit:contain;object-position:left center}
+.brand.asset-loaded .brand-logo{display:block}
+.brand.asset-loaded .brand-label{display:none}
+.brand-label{font-family:var(--font-poster);font-weight:800;letter-spacing:-.08em}
+.brand-label b{color:var(--berry)}
+.footer .brand-logo{max-height:58px;max-width:215px;filter:brightness(0) invert(1)}
+.footer .brand.asset-loaded{display:inline-flex}
+.site-utility .utility-row{font-family:var(--font-mono);letter-spacing:.04em;font-size:9px;font-weight:400}
+.btn{font-family:var(--font-mono);text-transform:none;letter-spacing:-.04em;font-size:11px}
+.text-link{font-family:var(--font-mono);text-transform:none;letter-spacing:-.04em}
+.mini,.breadcrumb,.folio,.index{font-family:var(--font-mono)!important;font-weight:400!important;letter-spacing:.06em!important}
+.page-hero .breadcrumb{font-family:var(--font-mono);font-weight:400}
+h1,h2,h3{overflow-wrap:break-word}
+h2{font-family:var(--font-contrast);letter-spacing:-.052em}
+h3{font-family:var(--font-soft)}
+.lead{letter-spacing:-.012em}
+.site-utility{border-color:rgba(80,33,79,.17)}
+.site-header .desktop-nav a{font-family:var(--font-soft);letter-spacing:-.03em;font-size:12px;font-weight:700}
+.site-header .btn{border-radius:100px}
+.menu-toggle{color:var(--plum)}
+.hero .hero-grid{position:relative}
+.site-header .brand-label small{letter-spacing:.31em;font-family:var(--font-mono);font-size:7px}
+.footer .brand-label small{color:#F1DDEC}
+.editorial-art{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.editorial-art img{position:absolute;display:block;width:100%;height:100%;object-fit:cover}
+.edition-folio{font:400 10px var(--font-mono);letter-spacing:.08em;opacity:.7}
+.editorial-hairline{height:1px;background:currentColor;opacity:.25}
+.page-hero .page-art{position:absolute;inset:0;z-index:0;pointer-events:none}
+.page-hero .page-art img{width:100%;height:100%;object-fit:cover;display:block}
+.page-hero .container{z-index:2;position:relative}
+.page-hero .breadcrumb{position:relative;z-index:3}
+.page-hero h1{font-weight:500}
+.page-hero .lead{position:relative;z-index:3;max-width:680px}
+.page-hero .mini{position:relative;z-index:3}
+.page-hero:after{pointer-events:none}
+.page-hero:before{z-index:2}
+
+/* 01. Home is a cinematic, nearly black journal cover.
+   The hero photograph and oversized wordform cross the same visual plane. */
+body[data-page="home"] .site-header{background:#180E1D;border-bottom-color:rgba(255,255,255,.18);color:#FFF6F3}
+body[data-page="home"] .site-utility{background:#180E1D;border-bottom-color:rgba(255,255,255,.16)}
+body[data-page="home"] .utility-row{color:#F8D0DB}
+body[data-page="home"] .utility-row span:last-child{color:#FE8D93}
+body[data-page="home"] .brand-label{color:#FFF7F5}
+body[data-page="home"] .brand-label small{color:#F7D2DD}
+body[data-page="home"] .brand.asset-loaded .brand-logo{filter:brightness(0) invert(1)}
+body[data-page="home"] .desktop-nav a{color:#FFFAF8}
+body[data-page="home"] .desktop-nav a:hover{color:#FF747D}
+body[data-page="home"] .menu-toggle{color:white;border-color:#6A4A68}
+body[data-page="home"] .mobile-nav{background:#281627}
+body[data-page="home"] .mobile-nav a{color:#FFF}
+body[data-page="home"] .hero{background:#160E1B;color:#FFFCFA;min-height:760px}
+body[data-page="home"] .hero:before{display:block;position:absolute;inset:0;background:radial-gradient(circle at 77% 53%,rgba(231,55,67,.53) 0%,rgba(151,19,36,.38) 19%,rgba(68,15,49,.18) 42%,transparent 62%),linear-gradient(125deg,#130C16 6%,#1F0D1A 51%,#390C25 90%);opacity:1}
+body[data-page="home"] .hero:after{content:"EMPOWERED";position:absolute;right:-.095em;bottom:-.21em;z-index:2;font:700 clamp(8rem,18.8vw,24rem)/.9 var(--font-poster);letter-spacing:-.13em;color:rgba(255,255,255,.94);white-space:nowrap;pointer-events:none}
+body[data-page="home"] .hero .hero-grid{min-height:760px;grid-template-columns:1.02fr .98fr}
+body[data-page="home"] .hero .hero-copy{padding:90px 0 220px;z-index:5}
+body[data-page="home"] .hero .hero-copy h1{font:600 clamp(3.5rem,5.05vw,6.1rem)/1.01 var(--font-poster);letter-spacing:-.082em;text-transform:uppercase;max-width:700px;position:relative;z-index:5;margin-top:30px}
+body[data-page="home"] .hero .hero-copy .italic{font:italic 500 1.19em/.85 var(--font-contrast);text-transform:none;letter-spacing:-.075em;color:#FF898D}
+body[data-page="home"] .hero .hero-copy .lead{color:#F2DEE7;font-size:16px;max-width:500px}
+body[data-page="home"] .hero .mini{color:#FF9A9F}
+body[data-page="home"] .hero .btn-primary{background:#FFF9F5;color:#2A1124}
+body[data-page="home"] .hero .btn-outline{color:white;border-color:rgba(255,255,255,.6)}
+body[data-page="home"] .hero-visual{min-height:760px;z-index:1}
+body[data-page="home"] .hero-photo{left:-7%;top:-3%;width:127%;height:94%;mask-image:radial-gradient(ellipse at 51% 48%,#000 29%,rgba(0,0,0,.89) 52%,transparent 76%);-webkit-mask-image:radial-gradient(ellipse at 51% 48%,#000 29%,rgba(0,0,0,.89) 52%,transparent 76%);filter:grayscale(.88) contrast(1.24) brightness(.7) sepia(.3);mix-blend-mode:screen}
+body[data-page="home"] .hero-visual .orbit{left:10%;top:6%;width:560px;height:600px;border-color:rgba(255,255,255,.26);transform:rotate(-19deg);z-index:3}
+body[data-page="home"] .hero-visual .hero-ellipse{left:-18%;top:-5%;width:800px;height:780px;border-color:rgba(231,55,67,.42);transform:rotate(14deg)}
+body[data-page="home"] .hero-visual .hero-ellipse:after{border-color:rgba(255,255,255,.11)}
+body[data-page="home"] .hero-vertical{color:#FFC8CB;z-index:4;right:-4%}
+body[data-page="home"] .hero-stamp{right:2%;bottom:24%;z-index:4;background:#ED3B47;color:white;border:1px solid rgba(255,255,255,.3);box-shadow:14px 14px 0 rgba(14,9,16,.7);font-family:var(--font-poster);font-size:10px;letter-spacing:-.04em}
+body[data-page="home"] .hero .hero-copy:after{color:#FDB8BB;bottom:160px}
+body[data-page="home"] .ribbon{background:#EB3C46}
+body[data-page="home"] .section:nth-of-type(3){background:#F7F2EC}
+body[data-page="home"] .service-item h3{font-family:var(--font-poster);text-transform:uppercase;letter-spacing:-.065em;font-size:clamp(23px,2.25vw,37px)}
+body[data-page="home"] .pathway{background:#231020}
+body[data-page="home"] .signature{background:#E7DBE2}
+body[data-page="home"] .publication .art{background:radial-gradient(circle at 66% 52%,#C2293C 0%,#592044 34%,#1E0E1C 76%)}
+
+/* 02. About reads as a burgundy print profile, image on the right. */
+body[data-page="about"] .page-hero{background:#410D26;color:#FFF9F1;min-height:610px}
+body[data-page="about"] .page-hero .container{padding-right:42%}
+body[data-page="about"] .page-hero:before{content:"VOL. 01  /  ABOUT";color:#ECBECB}
+body[data-page="about"] .page-hero:after{content:"";width:75%;height:110%;right:-20%;top:-18%;border:1px solid rgba(255,255,255,.15);box-shadow:0 0 0 70px rgba(255,255,255,.02)}
+body[data-page="about"] .page-hero .page-art{left:56%;right:0;width:44%;overflow:hidden}
+body[data-page="about"] .page-art img{filter:grayscale(.7) sepia(.25) contrast(1.08);mask-image:linear-gradient(to right,transparent,#000 22%);-webkit-mask-image:linear-gradient(to right,transparent,#000 22%)}
+body[data-page="about"] .page-hero h1{font-family:var(--font-contrast);font-size:clamp(4rem,6.3vw,7rem);font-weight:500;line-height:.98;color:#FFF8EF}
+body[data-page="about"] .page-hero .italic{color:#FF9CA3}
+body[data-page="about"] .page-hero .lead,body[data-page="about"] .page-hero .breadcrumb{color:#EDD4DC}
+body[data-page="about"] .page-hero .mini{color:#FFB4B9}
+body[data-page="about"] .feature-split h2{font-family:var(--font-contrast);font-style:italic;font-size:clamp(3.4rem,5vw,6rem)}
+body[data-page="about"] .deep-section{background:#EFDFE5;color:var(--plum)}
+body[data-page="about"] .deep-section .lead{color:#6D4865}
+body[data-page="about"] .deep-section .mini{color:var(--berry)}
+body[data-page="about"] .values-grid h3{font-family:var(--font-contrast)}
+
+/* 03. What We Do becomes an oversized dark-index service directory. */
+body[data-page="services"] .page-hero{background:#140C16;color:#FCF7F2;padding-bottom:105px}
+body[data-page="services"] .page-hero:before{content:"CONTENTS / 01—06";color:#C7A9B9}
+body[data-page="services"] .page-hero:after{content:"06";font:800 clamp(12rem,27vw,36rem)/1 var(--font-poster);letter-spacing:-.16em;color:rgba(231,55,67,.18);width:auto;height:auto;box-shadow:none;border:0;right:6%;top:3%}
+body[data-page="services"] .page-hero h1{font:700 clamp(3.9rem,6.3vw,7.2rem)/.99 var(--font-poster);letter-spacing:-.085em;text-transform:uppercase;max-width:1040px}
+body[data-page="services"] .page-hero .italic{font-family:var(--font-contrast);font-style:italic;text-transform:none;letter-spacing:-.1em;font-weight:400;color:#FF757F}
+body[data-page="services"] .page-hero .lead,body[data-page="services"] .page-hero .breadcrumb{color:#E1CFDD}
+body[data-page="services"] .page-hero .mini{color:#F87C87}
+body[data-page="services"] .section:has(.detail-collection){background:#1D1121;color:#FFF9F5}
+body[data-page="services"] .detail-group{border-color:#63495D;grid-template-columns:1.1fr .9fr;gap:90px}
+body[data-page="services"] .detail-group h2{font:600 clamp(2.2rem,3.9vw,4.8rem)/1.05 var(--font-poster);letter-spacing:-.075em;text-transform:uppercase;color:#FFF7F4}
+body[data-page="services"] .detail-group .lead{color:#DCC8D5}
+body[data-page="services"] .detail-group h3{color:#FF8990}
+body[data-page="services"] .detail-group li{color:#DFD0DC;font-size:13px}
+body[data-page="services"] .detail-group .detail-index{color:#FF878A}
+
+/* 04. Solutions adopts high-contrast white/red brand posters. */
+body[data-page="solutions"] .page-hero{background:#F8F3EE;color:#571B3E;min-height:570px}
+body[data-page="solutions"] .page-hero:after{content:"ED";font:800 clamp(13rem,32vw,37rem)/1 var(--font-poster);letter-spacing:-.15em;width:auto;height:auto;top:0;right:5%;border:0;box-shadow:none;color:#F0DAE4}
+body[data-page="solutions"] .page-hero h1{font:700 clamp(3.2rem,5.9vw,6.2rem)/1.06 var(--font-poster);letter-spacing:-.075em;text-transform:uppercase}
+body[data-page="solutions"] .page-hero .italic{font:italic 500 1.1em/.8 var(--font-contrast);text-transform:none;color:var(--berry)}
+body[data-page="solutions"] .showcase{gap:22px 55px}
+body[data-page="solutions"] .showcase article{padding:46px 0 60px;position:relative}
+body[data-page="solutions"] .showcase article:before{content:"";position:absolute;inset:8px -7px auto auto;width:8px;height:8px;background:var(--berry);border-radius:50%}
+body[data-page="solutions"] .showcase article h3{font-family:var(--font-poster);font-size:clamp(25px,2.8vw,39px);font-weight:700;letter-spacing:-.08em;line-height:1.15;text-transform:uppercase}
+body[data-page="solutions"] .showcase article:nth-child(2n){background:linear-gradient(130deg,rgba(231,55,67,.055),transparent 68%);padding-left:22px}
+body[data-page="solutions"] .deep-section{background:#6E1334}
+
+/* 05. Academy gets expressive typographic pedagogy / print catalogue. */
+body[data-page="academy"] .page-hero{background:#EBDFE5;min-height:580px}
+body[data-page="academy"] .page-hero:after{content:"08";font:700 clamp(15rem,35vw,42rem)/.8 var(--font-poster);letter-spacing:-.12em;right:0;top:8%;width:auto;height:auto;border:0;box-shadow:none;color:#DCC5D2;opacity:.68}
+body[data-page="academy"] .page-hero h1{font:700 clamp(3.45rem,5.4vw,6.5rem)/1.04 var(--font-soft);letter-spacing:-.075em;max-width:1010px}
+body[data-page="academy"] .page-hero .italic{font-family:var(--font-contrast);font-weight:400;color:var(--berry)}
+body[data-page="academy"] .feature-split h2{font-family:var(--font-soft);font-weight:600;letter-spacing:-.068em}
+body[data-page="academy"] .academy-list summary h3{font-family:var(--font-soft);letter-spacing:-.055em;font-weight:600}
+body[data-page="academy"] .academy-list details[open]{background:linear-gradient(95deg,#FAF3F0,transparent)}
+body[data-page="academy"] .academy-list details[open] summary h3{color:var(--berry)}
+body[data-page="academy"] .academy-list summary{padding-right:14px}
+body[data-page="academy"] .quote-wash{background:#F1E3E4}
+body[data-page="academy"] .showcase h3{font-family:var(--font-soft);font-weight:600;letter-spacing:-.06em}
+
+/* 06. Research & Insights resembles an editorial journal or broadsheet. */
+body[data-page="research"] .page-hero{background:#FFFDF8;min-height:560px}
+body[data-page="research"] .page-hero:after{content:"RESEARCH";top:52%;right:-1%;width:auto;height:auto;border:0;box-shadow:none;font:700 clamp(6rem,11vw,13rem)/.86 var(--font-poster);letter-spacing:-.13em;color:#F5E4E5}
+body[data-page="research"] .page-hero h1{font:500 clamp(4.3rem,7.2vw,8.8rem)/.94 var(--font-contrast);letter-spacing:-.08em}
+body[data-page="research"] .page-hero .italic{font-style:italic;color:var(--berry)}
+body[data-page="research"] .page-hero:before{content:"EMPOWERED JOURNAL  /  2026";font-family:var(--font-mono);color:#8F7784}
+body[data-page="research"] .topic-grid{grid-template-columns:repeat(2,1fr);gap:0 55px}
+body[data-page="research"] .topic-grid article{display:grid;grid-template-columns:43px 1fr;column-gap:15px;padding:27px 0}
+body[data-page="research"] .topic-grid article h3{font:500 clamp(23px,2.5vw,36px)/1.1 var(--font-contrast);grid-column:2}
+body[data-page="research"] .topic-grid article p{grid-column:2}
+body[data-page="research"] .quote-wash{background:#F4EAE6}
+body[data-page="research"] .showcase{grid-template-columns:repeat(3,1fr);gap:32px}
+body[data-page="research"] .showcase article h3{font-family:var(--font-contrast);font-size:clamp(25px,2.4vw,36px);font-weight:500}
+
+/* 07. Impact is a verification-led editorial statement, not a fake metrics page. */
+body[data-page="impact"] .page-hero{background:#4A1736;color:white;min-height:600px}
+body[data-page="impact"] .page-hero:after{content:"IMPACT";font:700 clamp(9rem,21vw,26rem)/1 var(--font-poster);color:rgba(255,255,255,.07);width:auto;height:auto;right:-8%;bottom:-.12em;top:auto;box-shadow:none;border:0;letter-spacing:-.13em}
+body[data-page="impact"] .page-hero h1{font:700 clamp(3.9rem,6.1vw,7rem)/1 var(--font-poster);letter-spacing:-.09em;max-width:1120px;text-transform:uppercase}
+body[data-page="impact"] .page-hero .italic{font:italic 500 1.15em/.88 var(--font-contrast);text-transform:none;color:#FF9099}
+body[data-page="impact"] .page-hero .lead,body[data-page="impact"] .page-hero .breadcrumb{color:#F2DDEB}
+body[data-page="impact"] .page-hero .mini{color:#FFB4BF}
+body[data-page="impact"] .impact-list{grid-template-columns:repeat(5,1fr)}
+body[data-page="impact"] .impact-list h3{font-family:var(--font-soft);font-size:clamp(17px,1.65vw,25px);font-weight:600;letter-spacing:-.06em}
+body[data-page="impact"] .quote-wash{background:#EADCE1}
+
+/* 08. Partnerships has an expressive photo treatment with subtle ink. */
+body[data-page="partnerships"] .page-hero{background:#240D1B;color:white;min-height:680px}
+body[data-page="partnerships"] .page-hero .container{padding-right:43%}
+body[data-page="partnerships"] .page-hero .page-art{left:48%;width:52%;overflow:hidden}
+body[data-page="partnerships"] .page-hero .page-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#240D1B 0%,transparent 34%),linear-gradient(0deg,#240D1B 0%,transparent 36%),linear-gradient(130deg,rgba(231,55,67,.24),transparent 60%)}
+body[data-page="partnerships"] .page-hero img{filter:grayscale(.6) contrast(1.12)}
+body[data-page="partnerships"] .page-hero h1{font:650 clamp(3.7rem,5.1vw,6.2rem)/1 var(--font-soft);letter-spacing:-.08em;max-width:1000px}
+body[data-page="partnerships"] .page-hero .italic{font-family:var(--font-contrast);font-weight:500;color:#FF9DA4}
+body[data-page="partnerships"] .page-hero .lead,body[data-page="partnerships"] .page-hero .breadcrumb{color:#EFE1E7}
+body[data-page="partnerships"] .page-hero .mini{color:#FF9DA4}
+body[data-page="partnerships"] .topic-grid h3{font-family:var(--font-soft);letter-spacing:-.055em;font-weight:600}
+
+/* 09. Contact is calmer editorial paper, with a high-contrast consultation panel. */
+body[data-page="contact"] .page-hero{background:#FCF7EF;min-height:510px}
+body[data-page="contact"] .page-hero:after{content:"HELLO.";font:700 clamp(10rem,23vw,28rem)/.9 var(--font-poster);letter-spacing:-.13em;top:40%;right:-6%;width:auto;height:auto;border:0;box-shadow:none;color:rgba(231,55,67,.07)}
+body[data-page="contact"] .page-hero h1{font:500 clamp(4.2rem,6.6vw,8rem)/1 var(--font-contrast);letter-spacing:-.07em}
+body[data-page="contact"] .page-hero .italic{color:var(--berry)}
+body[data-page="contact"] .contact-layout h2{font:700 clamp(2.65rem,4vw,4.4rem)/1 var(--font-soft);letter-spacing:-.085em}
+body[data-page="contact"] .contact-layout>div:last-child{padding:34px 39px;background:#F0E5E9;border-top:3px solid var(--berry)}
+body[data-page="contact"] .contact-layout h3{font-family:var(--font-soft);font-weight:700}
+
+/* The four product pages share an elegant ruby/paper product dossier. */
+body[data-page="product"] .product-hero{background:#300E25}
+body[data-page="product"] .product-hero h1{font:650 clamp(3.4rem,5.7vw,6.8rem)/1.03 var(--font-soft);letter-spacing:-.085em}
+body[data-page="product"] .product-hero .italic{font-family:var(--font-contrast);font-weight:500;color:#FF9EA7}
+body[data-page="product"] .product-hero:after{content:"ES";font:700 28vw/1 var(--font-poster);letter-spacing:-.13em;color:rgba(255,255,255,.08);border:0;box-shadow:none;width:auto;height:auto;top:15%;right:0}
+body[data-page="product"] .numbered .index{font:600 33px var(--font-contrast)!important}
+body[data-page="product"] .quote-wash{background:#EADCE2}
+
+/* General micro-composition */
+.section-head h2{max-width:820px}
+.page-hero h1,.hero h1{word-break:normal}
+.eyebrow:before{background:var(--berry)}
+.product-hero .eyebrow:before,.page-hero .mini.light:before{background:#FFADB4}
+.service-list .service-item:nth-child(2n){background-image:linear-gradient(90deg,transparent,rgba(231,55,67,.018))}
+.site-header a[aria-current="page"]{text-decoration:underline;text-decoration-color:var(--berry);text-underline-offset:7px}
+.footer{background:#190D19}
+.footer .tagline{font-family:var(--font-contrast);font-size:37px;font-weight:400}
+.cta-band{background:linear-gradient(120deg,#A9294E,#E73743 56%,#F35245);color:#fff}
+.cta-band h2{font:600 clamp(2.8rem,4.7vw,5.5rem)/1.07 var(--font-poster);letter-spacing:-.07em;text-transform:uppercase}
+.cta-band .mini{color:#FFF3F4}
+.cta-band .btn{font-size:11px}
+.cta-band:before{content:"✳";font-family:var(--font-poster);opacity:.38}
+@media(max-width:1180px){
+ body[data-page="home"] .hero .hero-copy h1{font-size:clamp(3.1rem,5vw,5.2rem)}
+ body[data-page="services"] .detail-group{gap:45px}
+ body[data-page="home"] .hero:after{font-size:18.6vw}
+}
+@media(max-width:980px){
+ body[data-page="home"] .site-header .menu-toggle{color:white;border-color:#866A83}
+ .site-header .btn{display:none}
+ body[data-page="home"] .hero .hero-grid{grid-template-columns:1.1fr .9fr}
+ body[data-page="home"] .hero .hero-copy{padding:80px 0 190px}
+ body[data-page="home"] .hero-photo{left:-10%;width:140%;top:3%}
+ body[data-page="about"] .page-hero .container{padding-right:37%}
+ body[data-page="partnerships"] .page-hero .container{padding-right:35%}
+ body[data-page="impact"] .impact-list{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:760px){
+ .brand-logo{max-width:160px;max-height:43px}
+ .page-hero .page-art{opacity:.22!important;left:35%!important;width:65%!important}
+ body[data-page="about"] .page-hero .container,
+ body[data-page="partnerships"] .page-hero .container{padding-right:22px}
+ body[data-page="about"] .page-hero,body[data-page="partnerships"] .page-hero{min-height:0}
+ body[data-page="about"] .page-hero h1{font-size:clamp(3.5rem,9vw,5.5rem)}
+ body[data-page="partnerships"] .page-hero h1{font-size:clamp(3.4rem,8vw,5rem)}
+ body[data-page="home"] .hero .hero-grid{display:flex;min-height:0;flex-direction:column}
+ body[data-page="home"] .hero{min-height:780px}
+ body[data-page="home"] .hero:after{font-size:22vw;bottom:-.09em;right:-.12em}
+ body[data-page="home"] .hero .hero-copy{padding:63px 0 0}
+ body[data-page="home"] .hero .hero-copy h1{font-size:clamp(3.1rem,8vw,5.2rem);margin-bottom:24px;max-width:650px}
+ body[data-page="home"] .hero .hero-copy .lead{font-size:15px;max-width:580px}
+ body[data-page="home"] .hero-visual{min-height:0;height:340px}
+ body[data-page="home"] .hero-photo{left:22%;top:-50px;width:74%;height:430px}
+ body[data-page="home"] .hero-visual .hero-ellipse{left:7%;width:400px;height:400px;top:-15%}
+ body[data-page="home"] .hero-visual .orbit{left:20%;top:-12%;height:350px;width:380px}
+ body[data-page="home"] .hero-stamp{bottom:35px;right:3%;font-size:9px}
+ body[data-page="home"] .hero .hero-copy:after{display:none}
+ body[data-page="services"] .detail-group{grid-template-columns:1fr;gap:23px}
+ body[data-page="services"] .detail-group h2{font-size:clamp(2.35rem,6vw,3.9rem)}
+ body[data-page="services"] .page-hero h1{font-size:clamp(3.5rem,8.6vw,5rem)}
+ body[data-page="solutions"] .page-hero h1{font-size:clamp(3.15rem,8vw,4.8rem)}
+ body[data-page="academy"] .page-hero h1{font-size:clamp(3.3rem,8.2vw,5rem)}
+ body[data-page="research"] .page-hero h1{font-size:clamp(3.9rem,10vw,5.7rem)}
+ body[data-page="impact"] .page-hero h1{font-size:clamp(3.2rem,7.8vw,5rem)}
+ body[data-page="research"] .showcase{grid-template-columns:repeat(2,1fr)}
+ body[data-page="research"] .topic-grid{grid-template-columns:repeat(2,1fr);gap:0 20px}
+ body[data-page="contact"] .page-hero h1{font-size:clamp(3.7rem,9vw,5.5rem)}
+ body[data-page="contact"] .contact-layout>div:last-child{padding:24px}
+ body[data-page="product"] .product-hero h1{font-size:clamp(3.25rem,7vw,5rem)}
+}
+@media(max-width:490px){
+ .site-utility .utility-row{font-size:8px}
+ .site-header .brand-logo{max-width:140px;max-height:40px}
+ body[data-page="home"] .hero{min-height:745px}
+ body[data-page="home"] .hero:after{font-size:24vw;bottom:.12em;right:-.22em}
+ body[data-page="home"] .hero .hero-copy h1{font-size:clamp(2.75rem,11.8vw,3.8rem);letter-spacing:-.085em}
+ body[data-page="home"] .hero .hero-copy{padding-top:48px}
+ body[data-page="home"] .hero .hero-copy .lead{font-size:14px}
+ body[data-page="home"] .hero .actions{gap:10px}
+ body[data-page="home"] .hero .btn{min-width:0;flex:0 1 auto;padding:11px 14px;font-size:10px}
+ body[data-page="home"] .hero-visual{height:315px}
+ body[data-page="home"] .hero-photo{left:5%;top:-26px;width:111%;height:370px}
+ body[data-page="home"] .hero-visual .orbit{left:7%;top:0;width:320px;height:295px}
+ body[data-page="home"] .hero-visual .hero-ellipse{left:-20%;width:390px;height:340px;top:-10px}
+ body[data-page="home"] .hero-stamp{right:0;bottom:13px;padding:12px 15px;font-size:8px;box-shadow:6px 6px 0 rgba(14,9,16,.7)}
+ body[data-page="about"] .page-hero h1{font-size:3.6rem}
+ body[data-page="services"] .page-hero h1{font-size:3.05rem}
+ body[data-page="solutions"] .page-hero h1{font-size:3.02rem}
+ body[data-page="academy"] .page-hero h1{font-size:3.15rem}
+ body[data-page="research"] .page-hero h1{font-size:4.15rem}
+ body[data-page="impact"] .page-hero h1{font-size:3.15rem}
+ body[data-page="partnerships"] .page-hero h1{font-size:3.5rem}
+ body[data-page="contact"] .page-hero h1{font-size:3.9rem}
+ body[data-page="research"] .topic-grid,body[data-page="research"] .showcase{grid-template-columns:1fr}
+ body[data-page="research"] .topic-grid article{grid-template-columns:31px 1fr}
+ body[data-page="impact"] .impact-list{grid-template-columns:1fr}
+ body[data-page="solutions"] .showcase article:nth-child(2n){padding-left:0}
+ body[data-page="product"] .product-hero h1{font-size:3rem}
+ .cta-band h2{font-size:clamp(2.35rem,9vw,3.6rem)}
+}
