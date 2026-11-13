@@ -338,3 +338,9 @@ body[data-page="solutions"] .showcase article h3{margin-top:14px}
 @media(max-width:490px){
  body[data-page="solutions"] .showcase article .solution-image{height:235px}
 }
+
+/* Image areas are deliberately filled with local editorial placeholder studies.
+   Final approved photographs can replace the assets without changing layout. */
+.solution-image img,.hero-photo,.feature-split img,.page-art img{background-color:#2A1228}
+.solution-image img{object-position:center}
+img[src$=".svg"]{color:transparent}

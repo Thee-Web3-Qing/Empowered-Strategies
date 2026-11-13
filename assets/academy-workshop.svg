@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1050" viewBox="0 0 900 1050" role="img" aria-label="Academy learning workshop placeholder">
+<defs><radialGradient id="g" cx="75%" cy="42%" r="82%"><stop stop-color="#C7435B"/><stop offset=".48" stop-color="#35203B"/><stop offset="1" stop-color="#100B16"/></radialGradient><linearGradient id="sil" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#130F18"/><stop offset=".48" stop-color="#411627"/><stop offset="1" stop-color="#09070E"/></linearGradient><linearGradient id="light" x1="0" x2="1" y1="0" y2=".8"><stop stop-color="#EE5960"/><stop offset=".45" stop-color="#672045"/><stop offset="1" stop-color="#241221"/></linearGradient><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="white" stroke-opacity=".07" stroke-width="1"/></pattern></defs>
+<rect width="900" height="1050" fill="url(#g)"/><rect width="900" height="1050" fill="url(#grid)" opacity=".6"/>
+<path d="M-80 367.5 C 270 105, 630 945, 1080 315" stroke="white" stroke-opacity=".18" stroke-width="2" fill="none"/>
+
+<rect x="155" y="223" width="580" height="366" rx="3" fill="#FCF5EB" fill-opacity=".16" stroke="#F9D6D3" stroke-opacity=".5"/>
+<rect x="189" y="262" width="450" height="23" fill="#FBF0ED" fill-opacity=".5"/>
+<rect x="189" y="302" width="314" height="11" fill="#FBF0ED" fill-opacity=".35"/>
+<rect x="189" y="330" width="354" height="11" fill="#FBF0ED" fill-opacity=".35"/>
+<circle cx="294" cy="645" r="84" fill="#6F1B40" stroke="#FB7478" stroke-width="7"/>
+<path d="M155 1000 V812 Q166 704 290 702 Q408 704 431 816 V1000" fill="url(#sil)"/>
+<circle cx="612" cy="648" r="89" fill="#A9435F" stroke="#FE7A7D" stroke-width="6"/>
+<path d="M463 1000 V817 Q478 703 608 703 Q739 703 760 835 V1000" fill="url(#light)"/>
+<line x1="67" y1="818" x2="846" y2="818" stroke="#FFF" stroke-opacity=".3"/>
+
+<rect x="46" y="42" width="40" height="4" fill="#FF6C71"/>
+<text x="46" y="88" fill="#FFF5EE" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">EMPOWERED / EDITORIAL STUDY</text>
+<line x1="46" x2="854" y1="938" y2="938" stroke="white" stroke-opacity=".5"/>
+<text x="46" y="976" fill="#FFCBC9" font-family="Arial, sans-serif" font-size="15" letter-spacing="4">ACADEMY / LEARNING</text>
+<text x="46" y="1012" fill="#FFF7F3" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">IMAGE PLACEHOLDER / 03</text>
+</svg>

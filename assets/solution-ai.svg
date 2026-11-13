@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1050" viewBox="0 0 900 1050" role="img" aria-label="FUTURE / AI image placeholder">
+<defs><radialGradient id="g" cx="75%" cy="42%" r="82%"><stop stop-color="#BA182C"/><stop offset=".48" stop-color="#2B132B"/><stop offset="1" stop-color="#100B16"/></radialGradient><linearGradient id="sil" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#130F18"/><stop offset=".48" stop-color="#411627"/><stop offset="1" stop-color="#09070E"/></linearGradient><linearGradient id="light" x1="0" x2="1" y1="0" y2=".8"><stop stop-color="#EE5960"/><stop offset=".45" stop-color="#672045"/><stop offset="1" stop-color="#241221"/></linearGradient><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="white" stroke-opacity=".07" stroke-width="1"/></pattern></defs>
+<rect width="900" height="1050" fill="url(#g)"/><rect width="900" height="1050" fill="url(#grid)" opacity=".6"/>
+<path d="M-80 367.5 C 270 105, 630 945, 1080 315" stroke="white" stroke-opacity=".18" stroke-width="2" fill="none"/>
+<g transform="translate(75 140)"><rect x="120" y="140" width="540" height="560" rx="22" fill="#220E22" stroke="#FF9C97" stroke-width="12"/><rect x="162" y="185" width="456" height="470" fill="#E73743" fill-opacity=".22"/><circle cx="390" cy="415" r="154" fill="none" stroke="#FFCAC5" stroke-width="10"/><circle cx="390" cy="415" r="78" fill="#FF8C82"/><path d="M390 255 V570 M231 415 H548 M273 294 L508 540 M508 294 L273 540" stroke="#FFCAC5" stroke-width="5" opacity=".75"/></g>
+<rect x="46" y="42" width="40" height="4" fill="#FF6C71"/>
+<text x="46" y="88" fill="#FFF5EE" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">EMPOWERED / EDITORIAL STUDY</text>
+<line x1="46" x2="854" y1="938" y2="938" stroke="white" stroke-opacity=".5"/>
+<text x="46" y="976" fill="#FFCBC9" font-family="Arial, sans-serif" font-size="15" letter-spacing="4">FUTURE / AI</text>
+<text x="46" y="1012" fill="#FFF7F3" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">IMAGE PLACEHOLDER / 01</text>
+</svg>

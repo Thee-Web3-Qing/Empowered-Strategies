@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1050" viewBox="0 0 900 1050" role="img" aria-label="Cinematic editorial portrait placeholder">
+<defs><radialGradient id="g" cx="75%" cy="42%" r="82%"><stop stop-color="#E73743"/><stop offset=".48" stop-color="#150A19"/><stop offset="1" stop-color="#100B16"/></radialGradient><linearGradient id="sil" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#130F18"/><stop offset=".48" stop-color="#411627"/><stop offset="1" stop-color="#09070E"/></linearGradient><linearGradient id="light" x1="0" x2="1" y1="0" y2=".8"><stop stop-color="#EE5960"/><stop offset=".45" stop-color="#672045"/><stop offset="1" stop-color="#241221"/></linearGradient><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="white" stroke-opacity=".07" stroke-width="1"/></pattern></defs>
+<rect width="900" height="1050" fill="url(#g)"/><rect width="900" height="1050" fill="url(#grid)" opacity=".6"/>
+<path d="M-80 367.5 C 270 105, 630 945, 1080 315" stroke="white" stroke-opacity=".18" stroke-width="2" fill="none"/>
+
+<ellipse cx="620" cy="410" rx="298" ry="347" fill="#FF4D4D" opacity=".14"/>
+<ellipse cx="580" cy="432" rx="225" ry="317" stroke="#FFD1D0" stroke-opacity=".35" stroke-width="2" fill="none"/>
+<path d="M238 1050 C239 820 300 684 396 636 C451 606 529 599 606 651 C732 732 758 878 780 1050 Z" fill="url(#sil)"/>
+<path d="M406 656 C370 599 367 514 380 444 C393 358 420 270 487 221 C532 188 608 204 645 256 C676 301 667 380 631 430 C610 463 581 475 555 497 C556 565 596 625 618 666 C560 723 464 709 406 656Z" fill="url(#light)" stroke="#F66F76" stroke-width="7"/>
+<path d="M644 358 L686 390 L642 414 L625 454" stroke="#FC8E84" stroke-width="8" fill="none" stroke-linecap="round"/>
+<path d="M395 426 C424 337 479 303 532 302 C574 301 624 329 641 370" stroke="#150A16" stroke-width="59" fill="none" stroke-linecap="round"/>
+<path d="M386 676 Q516 773 640 679" stroke="#F45A60" stroke-width="14" stroke-opacity=".5" fill="none"/>
+<path d="M190 925 L780 370" stroke="#FFF" stroke-opacity=".16" stroke-width="2"/>
+
+<rect x="46" y="42" width="40" height="4" fill="#FF6C71"/>
+<text x="46" y="88" fill="#FFF5EE" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">EMPOWERED / EDITORIAL STUDY</text>
+<line x1="46" x2="854" y1="938" y2="938" stroke="white" stroke-opacity=".5"/>
+<text x="46" y="976" fill="#FFCBC9" font-family="Arial, sans-serif" font-size="15" letter-spacing="4">LEARNING / FUTURE / PEOPLE</text>
+<text x="46" y="1012" fill="#FFF7F3" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">IMAGE PLACEHOLDER / 01</text>
+</svg>

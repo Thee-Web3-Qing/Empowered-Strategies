@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1050" viewBox="0 0 900 1050" role="img" aria-label="INSTITUTIONS image placeholder">
+<defs><radialGradient id="g" cx="75%" cy="42%" r="82%"><stop stop-color="#76203C"/><stop offset=".48" stop-color="#3F173C"/><stop offset="1" stop-color="#100B16"/></radialGradient><linearGradient id="sil" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#130F18"/><stop offset=".48" stop-color="#411627"/><stop offset="1" stop-color="#09070E"/></linearGradient><linearGradient id="light" x1="0" x2="1" y1="0" y2=".8"><stop stop-color="#EE5960"/><stop offset=".45" stop-color="#672045"/><stop offset="1" stop-color="#241221"/></linearGradient><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="white" stroke-opacity=".07" stroke-width="1"/></pattern></defs>
+<rect width="900" height="1050" fill="url(#g)"/><rect width="900" height="1050" fill="url(#grid)" opacity=".6"/>
+<path d="M-80 367.5 C 270 105, 630 945, 1080 315" stroke="white" stroke-opacity=".18" stroke-width="2" fill="none"/>
+<g transform="translate(60 40)"><path d="M100 830 L230 260 L450 160 L690 330 L750 830 Z" fill="url(#light)" stroke="#F8D6D1" stroke-opacity=".7" stroke-width="4"/><path d="M230 280 V820 M450 170 V830 M690 320 V820 M100 530 H740" stroke="#FF9692" stroke-opacity=".56" stroke-width="4"/><rect x="300" y="400" width="160" height="220" fill="#1D1022"/></g>
+<rect x="46" y="42" width="40" height="4" fill="#FF6C71"/>
+<text x="46" y="88" fill="#FFF5EE" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">EMPOWERED / EDITORIAL STUDY</text>
+<line x1="46" x2="854" y1="938" y2="938" stroke="white" stroke-opacity=".5"/>
+<text x="46" y="976" fill="#FFCBC9" font-family="Arial, sans-serif" font-size="15" letter-spacing="4">INSTITUTIONS</text>
+<text x="46" y="1012" fill="#FFF7F3" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">IMAGE PLACEHOLDER / 02</text>
+</svg>

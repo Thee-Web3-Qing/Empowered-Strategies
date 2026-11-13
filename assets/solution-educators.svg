@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1050" viewBox="0 0 900 1050" role="img" aria-label="EDUCATORS image placeholder">
+<defs><radialGradient id="g" cx="75%" cy="42%" r="82%"><stop stop-color="#9B1436"/><stop offset=".48" stop-color="#52214F"/><stop offset="1" stop-color="#100B16"/></radialGradient><linearGradient id="sil" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#130F18"/><stop offset=".48" stop-color="#411627"/><stop offset="1" stop-color="#09070E"/></linearGradient><linearGradient id="light" x1="0" x2="1" y1="0" y2=".8"><stop stop-color="#EE5960"/><stop offset=".45" stop-color="#672045"/><stop offset="1" stop-color="#241221"/></linearGradient><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="white" stroke-opacity=".07" stroke-width="1"/></pattern></defs>
+<rect width="900" height="1050" fill="url(#g)"/><rect width="900" height="1050" fill="url(#grid)" opacity=".6"/>
+<path d="M-80 367.5 C 270 105, 630 945, 1080 315" stroke="white" stroke-opacity=".18" stroke-width="2" fill="none"/>
+<g transform="translate(100 185)"><path d="M0 280 C120 230 250 250 355 330 V760 C235 694 111 666 0 712Z" fill="#EEE1D8" stroke="#E95564" stroke-width="12"/><path d="M355 330 C500 240 616 270 680 294 V728 C565 682 457 691 355 760Z" fill="#EEC9CC" stroke="#E95564" stroke-width="12"/><path d="M355 330 V760 M70 388 Q196 347 292 420 M70 444 Q196 410 292 475 M420 421 Q542 366 627 405 M420 480 Q542 425 627 462" stroke="#7D2D4F" stroke-width="12" fill="none"/></g>
+<rect x="46" y="42" width="40" height="4" fill="#FF6C71"/>
+<text x="46" y="88" fill="#FFF5EE" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">EMPOWERED / EDITORIAL STUDY</text>
+<line x1="46" x2="854" y1="938" y2="938" stroke="white" stroke-opacity=".5"/>
+<text x="46" y="976" fill="#FFCBC9" font-family="Arial, sans-serif" font-size="15" letter-spacing="4">EDUCATORS</text>
+<text x="46" y="1012" fill="#FFF7F3" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">IMAGE PLACEHOLDER / 05</text>
+</svg>
