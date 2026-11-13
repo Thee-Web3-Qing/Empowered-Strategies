@@ -75,7 +75,7 @@ function home(main){
  '</section>',
  '<section class="hf-services" aria-labelledby="hf-services-heading">',
  '<div class="hf-service-intro"><span class="hf-kicker">01 / WHAT WE DO</span><h2 id="hf-services-heading">ADVISE.<br>EQUIP.<br>TRANSFORM.</h2>',
- '<p><span class="hf-red-star" aria-hidden="true">✳</span>A strategic partner for education systems, institutions and the people who lead them.</p></div>',
+ '<p><span class="hf-red-star" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 0v36M0 18h36M5.3 5.3l25.4 25.4M30.7 5.3 5.3 30.7"/></svg></span>A strategic partner for education systems, institutions and the people who lead them.</p></div>',
  '<div class="hf-service-list">'+rows+'</div></section>',
  '<section class="hf-approach" aria-labelledby="hf-approach-heading">',
  '<div class="hf-approach-photo">'+img('learning','','academy-workshop.svg')+'</div>',
@@ -200,20 +200,38 @@ function redesignSolutions(main){
  ].join('');
 }
 function redesignAcademy(main){
- var top=main.querySelector('.feature-split');
- if(top){
-  top.closest('section').outerHTML='<section class="z-academy-story"><div class="z-academy-story-image">'+img('learning','','academy-workshop.svg')+
-   '<span>PEOPLE / SKILLS / PRACTICE</span></div><div class="z-academy-story-text">'+small('PROFESSIONAL DEVELOPMENT / OUR PHILOSOPHY')+
-   '<h2>Learning must become <em>practice.</em></h2><p>Professional development goes beyond attending workshops or completing modules. Our programmes emphasise real-world application, reflection, evidence-informed content, interactive learning and continuous improvement.</p>'+
-   cta('/contact?subject=Academy%20Application','Enquire about a Programme','z-btn-dark')+'</div></section>';
+ var oldCards=Array.from(main.querySelectorAll('.academy-list details'));
+ var pictures=['solutions-ai.webp','home-academy-learning.webp','home-solutions-building.webp','home-purpose-researcher.webp','about-leadership.webp','solutions-research.webp','about-hero-team.webp','academy-workshop.svg'];
+ var cards=oldCards.map(function(card,i){
+  var title=card.querySelector('h3')?.textContent?.trim()||'Programme';
+  var body=card.querySelector('.academy-body')?.innerHTML||'';
+  return '<details class="la-programme"><summary><div class="la-programme-cover"><img src="/assets/'+pictures[i]+'" alt="" loading="lazy"><span>'+String(i+1).padStart(2,'0')+'</span></div><div class="la-programme-title"><h3>'+title+'</h3><span class="la-programme-action" aria-hidden="true">'+arrow()+'</span></div></summary><div class="la-programme-detail">'+body+'</div></details>';
+ }).join('');
+ var routes=[
+  ['Open Enrolment Programmes','Individual professionals can enrol in selected scheduled programmes.','people'],
+  ['Institutional Cohorts','Organisations can commission customised programmes for their teams.','school'],
+  ['Executive Workshops','Short, focused professional learning experiences for institutional leaders.','calendar'],
+  ['Customised Learning Programmes','Learning experiences aligned with specific institutional objectives.','layers']
+ ];
+ function pict(n){
+  var d={
+   people:'<circle cx="8" cy="8" r="4"/><circle cx="18" cy="9" r="3"/><path d="M1 22v-2c0-5 3-7 7-7s7 2 7 7v2M16 14c4 0 7 2 7 6v2"/>',
+   school:'<path d="m2 9 10-6 10 6-10 6-10-6Zm4 5v6h12v-6M2 21h20"/>',
+   calendar:'<rect x="3" y="5" width="18" height="17" rx="2"/><path d="M7 2v6M17 2v6M3 10h18M8 14h2M14 14h2"/>',
+   layers:'<path d="m12 2 10 5-10 5L2 7l10-5ZM2 12l10 5 10-5M2 17l10 5 10-5"/>'
+  };return '<svg viewBox="0 0 24 24" width="31" height="31" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+d[n]+'</svg>';
  }
- var list=main.querySelector('.academy-list');
- if(list){
-  list.classList.add('z-academy-directory');
-  list.closest('section')?.classList.add('z-academy-section');
-  var details=Array.from(list.querySelectorAll('details'));
-  details.forEach(function(d,i){d.dataset.course=String(i+1).padStart(2,'0');});
- }
+ var ways=routes.map(function(r,i){return '<div class="la-route">'+pict(r[2])+'<div><h3><em>'+String(i+1).padStart(2,'0')+'</em> '+r[0]+'</h3><p>'+r[1]+'</p></div></div>';}).join('');
+ main.innerHTML=[
+ '<section class="la-hero"><div class="la-hero-copy"><div class="la-breadcrumb"><a href="/">HOME</a><span>/</span> LEARNING ACADEMY</div><span class="la-kicker">THE EMPOWERED LEARNING ACADEMY</span><h1>Advancing the knowledge,<br>skills and leadership of<br><em>education professionals.</em></h1>',
+ '<p>The future of education depends on the capabilities of the people who shape it. The EmpowerED Learning Academy provides structured professional development for educators, school leaders, university professionals and individuals working across the education sector.</p><strong class="la-brandline">ADVISE / EQUIP / TRANSFORM</strong></div>',
+ '<div class="la-hero-art"><span class="la-orbit" aria-hidden="true"></span><img src="/assets/home-approach-classroom.webp" alt="African student focused on classroom learning" fetchpriority="high"><span class="la-hero-note">INSTITUTIONAL TRANSFORMATION<br>THROUGH EVIDENCE</span></div></section>',
+ '<section class="la-philosophy"><div><span class="la-kicker">OUR LEARNING PHILOSOPHY</span><h2>Learning must<br>translate into <em>practice.</em></h2></div><p>Professional development should go beyond attending workshops or completing online modules. Our learning experiences emphasise practical application, relevant professional contexts, evidence-informed content, interactive learning, professional reflection and continuous development.</p><a class="la-button" href="/contact?subject=Academy%20Application">Enquire about a Programme '+arrow()+'</a></section>',
+ '<section class="la-catalogue"><span class="la-kicker">PROGRAMME CATALOGUE</span><h2>Choose what you want to learn.</h2><p>Explore each programme to see its subjects, intended audience and learning focus.</p><div class="la-programme-grid">'+cards+'</div></section>',
+ '<section class="la-ways"><span class="la-kicker">HOW TO LEARN WITH US</span><h2>Four ways to participate.</h2><div class="la-routes">'+ways+'</div>',
+ '<div class="la-cert"><svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8 14-2 8 6-3 6 3-2-8"/></svg><strong>Certification:</strong><p>Participants who complete eligible programmes may receive certificates of completion or professional development, subject to programme requirements. Any professional accreditation, external recognition or formal qualification will be clearly identified against the relevant programme. Participation alone does not confer a professional licence or academic qualification.</p></div></section>',
+ '<section class="la-end"><h2>Let us work together.</h2><div><strong>Develop the people who shape learning.</strong><p>Enquire about an individual programme, an institutional cohort or customised training.</p></div><a href="/contact?subject=Academy%20Application" class="la-button">Request a Consultation '+arrow()+'</a></section>'
+ ].join('');
 }
 function redesignResearch(main){
  var topics=main.querySelector('.topic-grid');
