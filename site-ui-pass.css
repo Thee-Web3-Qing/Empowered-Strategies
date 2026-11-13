@@ -365,3 +365,32 @@ body[data-page] main .z-page-bottom{display:flex;gap:14px;flex-wrap:wrap}
  html{scroll-behavior:auto!important}
  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+/* Small type accessibility: darker rubies on pale backgrounds.
+   The brighter brand red remains on large display headings and decorative shapes. */
+body[data-page="services"] :where(.ww-intro,.ww-details,.ww-reach) .ww-kicker,
+body[data-page="solutions"] :where(.sol-intro,.sol-process) .sol-kicker,
+body[data-page="about"] .ab-difference .ab-eyebrow,
+body[data-page="about"] .ab-foundation h2,
+body[data-page="home"] :where(.hf-services,.hf-solutions) .hf-kicker{
+ color:#a91e3e!important;
+}
+body[data-page="research"] .z-page-cover .z-page-issue,
+body[data-page="contact"] .z-page-cover .z-page-issue{
+ color:#ad2442!important;
+}
+body[data-page] #main .btn-primary,
+body[data-page="contact"] #main .form .btn{
+ background:#711634!important;
+ color:#fff9f4!important;
+ border-color:#711634!important;
+}
+body[data-page] #main .btn-primary:hover,
+body[data-page="contact"] #main .form .btn:hover{
+ background:#56102c!important;
+ border-color:#56102c!important;
+}
+body[data-page="contact"] #main .field :where(input,select,textarea)::placeholder{
+ color:#715366!important;
+ opacity:1!important;
+}
