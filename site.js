@@ -3,6 +3,8 @@
 'use strict';
 var EMAIL='hello@empoweredstrategies.ai';
 var ROOT='https://www.empoweredstrategies.ai';
+// Approved brand asset maintained in the Think Tank partner library.
+var BRAND_ASSET='https://www.thinktankcircle.org/images/partners/empowered-strategies.webp';
 var PHOTO_1='https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85';
 var PHOTO_2='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=85';
 var PHOTO_3='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85';
@@ -84,13 +86,22 @@ function eyebrow(s,light){return '<div class="mini eyebrow'+(light?' light':'')+
 function inner(content,cls){return '<div class="container'+(cls?' '+cls:'')+'">'+content+'</div>'}
 function section(content,cls){return '<section class="'+(cls||'section')+'">'+inner(content)+'</section>'}
 function list(items,cls){return '<ul class="'+(cls||'list-plain')+'">'+items.map(function(a){return '<li>'+a+'</li>'}).join('')+'</ul>'}
-function pageHero(kicker,title,desc,light){return '<section class="page-hero'+(light?' product-hero':'')+'">'+inner('<div class="breadcrumb"><a href="/">Home</a><span>/</span>'+kicker+'</div>'+eyebrow(kicker,light)+'<h1>'+title+'</h1><p class="lead">'+desc+'</p>')+'</section>'}
+function pageHero(kicker,title,desc,light){
+ var illustrations={
+  '/about-us':['https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1300&q=88','Education professionals gathered together'],
+  '/partnerships':['https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1300&q=88','Professionals collaborating in a meeting']
+ };
+ var art=illustrations[window.location.pathname];
+ var visual=art?'<div class="page-art"><img src="'+art[0]+'" alt="" loading="eager" decoding="async"></div>':'';
+ return '<section class="page-hero'+(light?' product-hero':'')+'">'+visual+inner('<div class="breadcrumb"><a href="/">Home</a><span>/</span>'+kicker+'</div>'+eyebrow(kicker,light)+'<h1>'+title+'</h1><p class="lead">'+desc+'</p>')+'</section>';
+}
 function bigCta(title,desc,alt){return '<section class="section cta-band">'+inner(eyebrow('Let us work together',true)+'<h2>'+title+'</h2><p style="max-width:720px">'+desc+'</p><div class="actions">'+btn('/contact','Request a Consultation')+(alt?btn('/partnerships','Explore Partnerships','btn-outline-light'):'')+'</div>')+'</section>'}
+function brand(){return '<img class="brand-logo" src="'+BRAND_ASSET+'" alt="" decoding="async"><span class="brand-label">EMPOWER<b>ED</b><small>STRATEGIES</small></span>'}
 function header(path){
  var links=NAV.map(function(x){return '<a href="'+x[1]+'"'+(path===x[1]?' aria-current="page"':'')+'>'+x[0]+'</a>'}).join('');
- return '<header class="site-header"><div class="site-utility"><div class="container utility-row"><span>Education strategy · Research · Institutional transformation</span><span>ADVISE / EQUIP / TRANSFORM</span></div></div><div class="container header-row"><a href="/" class="brand" aria-label="EmpowerED Strategies home"><span class="brand-label">EMPOWER<b>ED</b><small>STRATEGIES</small></span></a><nav aria-label="Main navigation" class="desktop-nav">'+links+'</nav>'+btn('/contact','Request a Consultation','btn-dark header-cta')+'<button class="menu-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation">☰</button></div><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation"><div class="mobile-nav-inner">'+links+'<a href="/contact">Contact</a>'+btn('/contact','Request a Consultation','btn-primary')+'</div></nav></header>'
+ return '<header class="site-header"><div class="site-utility"><div class="container utility-row"><span>Education strategy · Research · Institutional transformation</span><span>ADVISE / EQUIP / TRANSFORM</span></div></div><div class="container header-row"><a href="/" class="brand" aria-label="EmpowerED Strategies home">'+brand()+'</a><nav aria-label="Main navigation" class="desktop-nav">'+links+'</nav>'+btn('/contact','Request a Consultation','btn-dark header-cta')+'<button class="menu-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation">☰</button></div><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation"><div class="mobile-nav-inner">'+links+'<a href="/contact">Contact</a>'+btn('/contact','Request a Consultation','btn-primary')+'</div></nav></header>'
 }
-function footer(){return '<footer class="footer">'+inner('<div class="footer-top"><div><a href="/" class="brand"><span class="brand-label">EMPOWER<b>ED</b><small>STRATEGIES</small></span></a><div class="tagline">Reshaping Education’s Future.</div><p>We connect evidence, strategy, leadership and innovation to help education institutions build stronger systems and better learning outcomes.</p><div class="mini light">ADVISE. EQUIP. TRANSFORM.</div></div><div><h4>Explore</h4><div class="footer-links"><a href="/about-us">About Us</a><a href="/what-we-do">What We Do</a><a href="/solutions">Solutions</a><a href="/learning-academy">Learning Academy</a><a href="/our-impact">Our Impact</a></div></div><div><h4>Knowledge & Partnership</h4><div class="footer-links"><a href="/research-insights">Research & Insights</a><a href="/partnerships">Partnerships</a><a href="/solutions/ai-ready-education-institution">AI-Ready Institution</a><a href="/contact">Contact Us</a></div></div><div><h4>Stay informed</h4><p>Research, education developments and perspectives on the future of learning.</p><a class="text-link" href="mailto:'+EMAIL+'?subject=Subscribe%20to%20the%20EmpowerED%20Education%20Brief">Request newsletter updates <span class="arrow">↗</span></a><p style="margin-top:23px"><a href="mailto:'+EMAIL+'">'+EMAIL+'</a></p></div></div><div class="footer-bottom"><span>© '+new Date().getFullYear()+' EmpowerED Strategies. All rights reserved.</span><span>Evidence-led strategy. Empowered institutions. A better future for every learner.</span></div>')+'</footer>'}
+function footer(){return '<footer class="footer">'+inner('<div class="footer-top"><div><a href="/" class="brand">'+brand()+'</a><div class="tagline">Reshaping Education’s Future.</div><p>We connect evidence, strategy, leadership and innovation to help education institutions build stronger systems and better learning outcomes.</p><div class="mini light">ADVISE. EQUIP. TRANSFORM.</div></div><div><h4>Explore</h4><div class="footer-links"><a href="/about-us">About Us</a><a href="/what-we-do">What We Do</a><a href="/solutions">Solutions</a><a href="/learning-academy">Learning Academy</a><a href="/our-impact">Our Impact</a></div></div><div><h4>Knowledge & Partnership</h4><div class="footer-links"><a href="/research-insights">Research & Insights</a><a href="/partnerships">Partnerships</a><a href="/solutions/ai-ready-education-institution">AI-Ready Institution</a><a href="/contact">Contact Us</a></div></div><div><h4>Stay informed</h4><p>Research, education developments and perspectives on the future of learning.</p><a class="text-link" href="mailto:'+EMAIL+'?subject=Subscribe%20to%20the%20EmpowerED%20Education%20Brief">Request newsletter updates <span class="arrow">↗</span></a><p style="margin-top:23px"><a href="mailto:'+EMAIL+'">'+EMAIL+'</a></p></div></div><div class="footer-bottom"><span>© '+new Date().getFullYear()+' EmpowerED Strategies. All rights reserved.</span><span>Evidence-led strategy. Empowered institutions. A better future for every learner.</span></div>')+'</footer>'}
 function home(){
  var services=SERVICES.map(function(s,i){return '<a href="/what-we-do#service-'+(i+1)+'" class="service-item"><span class="index">0'+(i+1)+'</span><h3>'+s.title+'</h3><p>'+s.intro+'</p><span class="arrow" aria-hidden="true">↗</span></a>'}).join('');
  var steps=[['Understand','Research, assessments and stakeholder engagement.'],['Strategise','Practical strategies, policies and transformation roadmaps.'],['Equip','Learning for educators, leaders, boards and institutions.'],['Implement','Guidance to move plans into purposeful action.'],['Measure & Improve','Monitoring, evaluation and continuous learning.']].map(function(x,i){return '<div class="pathway-step"><div class="number">0'+(i+1)+'</div><h3>'+x[0]+'</h3><p>'+x[1]+'</p></div>'}).join('');
@@ -189,8 +200,16 @@ var titles={
 };
 function routePath(){var path=window.location.pathname.replace(/\/+$/,'')||'/';return path}
 function render(){
- var p=routePath(),body=p==='/'?home():p==='/about-us'?about():p==='/what-we-do'?expertise():p==='/solutions'?solutions():p==='/learning-academy'?academy():p==='/research-insights'?research():p==='/our-impact'?impact():p==='/partnerships'?partnerships():p==='/contact'?contact():p.indexOf('/solutions/')===0?product(p):notfound();
+ var p=routePath();
+ var pageTypes={'/':'home','/about-us':'about','/what-we-do':'services','/solutions':'solutions','/learning-academy':'academy','/research-insights':'research','/our-impact':'impact','/partnerships':'partnerships','/contact':'contact'};
+ document.body.dataset.page=pageTypes[p]||(p.indexOf('/solutions/')===0?'product':'other');
+ var body=p==='/'?home():p==='/about-us'?about():p==='/what-we-do'?expertise():p==='/solutions'?solutions():p==='/learning-academy'?academy():p==='/research-insights'?research():p==='/our-impact'?impact():p==='/partnerships'?partnerships():p==='/contact'?contact():p.indexOf('/solutions/')===0?product(p):notfound();
  document.getElementById('app').innerHTML=header(p)+'<main id="main">'+body+'</main>'+footer();
+ document.querySelectorAll('.brand-logo').forEach(function(img){
+   function loaded(){img.closest('.brand').classList.add('asset-loaded')}
+   if(img.complete&&img.naturalWidth>0){loaded()}
+   else{img.addEventListener('load',loaded,{once:true});img.addEventListener('error',function(){img.remove()},{once:true})}
+ });
  var title=titles[p]||'Page Not Found';
  document.title=title+' | EmpowerED Strategies';
  var description='EmpowerED Strategies: evidence-led education strategy, research, institutional transformation, leadership and professional learning.';
