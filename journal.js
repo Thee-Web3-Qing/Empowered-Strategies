@@ -35,7 +35,7 @@ var ALTS={
 };
 function img(key,css,fallback){return '<img class="'+(css||'')+'" src="'+PH[key]+'" alt="'+ALTS[key]+'" decoding="async" loading="'+(key==='hero'?'eager':'lazy')+'" data-fallback="'+A+(fallback||'education-profile.svg')+'">';}
 function small(t){return '<span class="z-kicker">'+t+'</span>';}
-function arrow(){return '<span aria-hidden="true">↗</span>';}
+function arrow(){return '<svg class="ed-icon-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19 19 5M8 5h11v11"/></svg>';}
 function cta(href,text,style){return '<a class="z-btn '+(style||'')+'" href="'+href+'">'+text+' '+arrow()+'</a>';}
 function media(key,css,fallback){return '<div class="z-media '+(css||'')+'">'+img(key,'',fallback)+'</div>';}
 function servicesFrom(main){
@@ -206,10 +206,32 @@ function redesignResearch(main){
  if(extra)extra.closest('section')?.classList.add('z-research-forum');
 }
 function redesignAbout(main){
- var split=main.querySelector('.feature-split');
- if(split){split.closest('section')?.classList.add('z-about-story');}
- var values=main.querySelector('.values-grid');
- if(values)values.closest('section')?.classList.add('z-values-section');
+ main.innerHTML=[
+ '<section class="ab-hero" aria-labelledby="ab-hero-title"><div class="ab-hero-inner">',
+ '<div class="ab-hero-copy"><span class="ab-eyebrow">ABOUT US</span><h1 id="ab-hero-title">Education<br>systems that<br><em>work for Africa.</em></h1>',
+ '<p>EmpowerED Strategies is an education strategy, research and implementation partner working with institutions, governments and education leaders across Africa.</p>',
+ '<div class="ab-actions"><a href="#our-story">Our Approach <span class="ab-arrow">↗</span></a><a href="/what-we-do">Our Work <span class="ab-arrow">↗</span></a></div></div>',
+ '<div class="ab-collage" aria-label="Education and institutional leadership"><div class="ab-red-ring" aria-hidden="true"></div>',
+ '<div class="ab-frame ab-frame-main">'+img('learning','','education-profile.svg')+'</div>',
+ '<div class="ab-frame ab-frame-building"><img src="/assets/home-solutions-building.webp" alt="Modern institutional building in dramatic red light" loading="eager"></div>',
+ '<div class="ab-frame ab-frame-leader"><img src="/assets/solutions-leadership.webp" alt="African education leader speaking at a professional discussion" loading="eager"></div>',
+ '</div></div></section>',
+ '<section class="ab-foundation" aria-label="Our mission, vision and values">',
+ '<div><span class="ab-foundation-icon">◎</span><div><h2>OUR MISSION</h2><p>To strengthen education systems through evidence, strategy and practical implementation.</p></div></div>',
+ '<div><span class="ab-foundation-icon">◉</span><div><h2>OUR VISION</h2><p>An Africa where people, institutions and systems enable quality learning and equitable opportunities for all.</p></div></div>',
+ '<div><span class="ab-foundation-icon">◇</span><div><h2>OUR VALUES</h2><p>Evidence-led <span>•</span> Collaborative<br>Contextual <span>•</span> Practical <span>•</span> Lasting Impact</p></div></div>',
+ '</section>',
+ '<section class="ab-story" id="our-story"><div class="ab-story-photo"><img src="/assets/home-hero-campus.webp" alt="Students walking into a contemporary African university" loading="lazy"></div>',
+ '<div class="ab-story-copy"><span class="ab-eyebrow">OUR STORY</span><h2>From insight to<br>real, <em>sustained change.</em></h2>',
+ '<p>We were founded on a simple belief: that education can be a powerful lever for people, institutions and societies to thrive.</p>',
+ '<p>Today, we work at the intersection of strategy, research and implementation to turn that belief into measurable results across Africa.</p></div></section>',
+ '<section class="ab-difference"><span class="ab-eyebrow">WHAT SETS US APART</span>',
+ '<div class="ab-difference-grid"><article><span class="ab-difference-icon">▥</span><h3>Evidence-Led</h3><p>We ground our work in research, data and real-world insight.</p></article>',
+ '<article><span class="ab-difference-icon">◇</span><h3>Practical &amp; Contextual</h3><p>Solutions designed for Africa’s diverse education realities.</p></article>',
+ '<article><span class="ab-difference-icon">♧</span><h3>People-Centred</h3><p>We work with and for educators, learners and communities.</p></article></div></section>',
+ '<section class="ab-final"><h2>Let’s strengthen<br>education <em>together.</em></h2><a href="/contact">Request a Consultation <span class="ab-arrow">↗</span></a>',
+ '<img src="/assets/home-solutions-building.webp" alt="" loading="lazy"></section>'
+ ].join('');
 }
 function redesignImpact(main){
  var x=main.querySelector('.impact-list');
@@ -222,6 +244,11 @@ function redesignPartners(main){
 function redesignContact(main){
  var form=main.querySelector('.contact-layout');
  if(form)form.closest('section')?.classList.add('z-contact-section');
+}
+function cleanArrows(){
+ var arrowSVG='<svg class="ed-icon-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19 19 5M8 5h11v11"/></svg>';
+ var selectors='.hf-arrow,.hf-circle,.hf-inline-arrow,.ww-service-arrow,.ww-bottom-cta span,.ab-arrow,.z-row-arrow,.header-cta .arrow,.btn .arrow,.text-link .arrow';
+ document.querySelectorAll(selectors).forEach(function(el){if(el.dataset.edIcon)return;if(el.textContent.trim()==='↗'||el.textContent.trim()==='→'){el.innerHTML=arrowSVG;el.dataset.edIcon='true';}});
 }
 function fixImages(main){
  Array.from(main.querySelectorAll('img')).forEach(function(im){
@@ -247,6 +274,7 @@ function enhance(){
   if(page==='contact')redesignContact(main);
  }
  fixImages(main);
+ cleanArrows();
  document.body.classList.add('journal-ready');
 }
 var root=document.getElementById('app');
