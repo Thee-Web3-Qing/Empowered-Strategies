@@ -6,26 +6,32 @@
 'use strict';
 var A='/assets/';
 var PH={
- hero:'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=1300&q=86',
- learning:'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1300&q=85',
- team:'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85',
- graduate:'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=85',
- strategy:'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=85',
- research:'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1100&q=85',
- institute:'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85',
- workshop:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1100&q=85',
- students:'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1100&q=85'
+ hero:'/assets/home-impact-portrait.webp',
+ campus:'/assets/home-hero-campus.webp',
+ learning:'/assets/home-approach-classroom.webp',
+ team:'/assets/about-hero-team.webp',
+ graduate:'/assets/home-purpose-student.webp',
+ strategy:'/assets/home-purpose-educator.webp',
+ research:'/assets/research-editorial.webp',
+ institute:'/assets/home-solutions-building.webp',
+ workshop:'/assets/home-academy-learning.webp',
+ students:'/assets/home-purpose-student.webp',
+ leadership:'/assets/solutions-leadership.webp',
+ analysis:'/assets/home-purpose-researcher.webp'
 };
 var ALTS={
- hero:'Illustrative editorial portrait representing the people shaping education',
- learning:'Illustrative photograph of a classroom learning environment',
- team:'Illustrative image of a professional collaboration',
- graduate:'Illustrative image of graduating students',
- strategy:'Illustrative image of students collaborating',
- research:'Illustrative image of learning and research',
- institute:'Illustrative photograph of an institutional environment',
- workshop:'Illustrative photograph of education professionals working together',
- students:'Illustrative photograph of an academic learning environment'
+ hero:'African education leader in a burgundy-lit editorial portrait',
+ campus:'Two students climbing the steps of a contemporary African university campus',
+ learning:'African secondary school student listening attentively in a classroom',
+ team:'African education leaders working together in a strategy meeting',
+ graduate:'African secondary school student in a burgundy school uniform',
+ strategy:'African education professional in a studio portrait',
+ research:'Education researcher reviewing evidence and evaluation documents',
+ institute:'Modern educational institution photographed under red architectural lighting',
+ workshop:'Young African learner taking notes beside a laptop',
+ students:'African secondary school student focused on a lesson',
+ leadership:'African education leader speaking at a professional meeting',
+ analysis:'Education professional reading and analysing research'
 };
 function img(key,css,fallback){return '<img class="'+(css||'')+'" src="'+PH[key]+'" alt="'+ALTS[key]+'" decoding="async" loading="'+(key==='hero'?'eager':'lazy')+'" data-fallback="'+A+(fallback||'education-profile.svg')+'">';}
 function small(t){return '<span class="z-kicker">'+t+'</span>';}
@@ -62,7 +68,7 @@ function home(main){
  '<p>We help governments, institutions and education leaders navigate change, strengthen capacity and build learning environments ready for the future.</p>',
  '<div class="hf-actions">'+cta('/contact','Request a Strategic Consultation','hf-primary')+cta('/learning-academy','Explore Our Programmes','hf-secondary')+'</div>',
  '</div><aside class="hf-hero-side" aria-label="Our education priorities"><div class="hf-side-intro">',
- '<div class="hf-campus-photo">'+img('institute','','solution-systems.svg')+'</div>',
+ '<div class="hf-campus-photo">'+img('campus','','solution-systems.svg')+'</div>',
  '<p>Evidence-led strategy, institutional capacity and meaningful transformation in education.</p></div>',
  '<div class="hf-two-priorities"><div><span>01</span><p>Stronger<br>institutions.</p></div><div><span>02</span><p>Better learning<br>outcomes.</p></div></div>',
  '</aside></div><div class="hf-hero-footer"><span>EMPOWERED STRATEGIES / RESHAPING EDUCATION’S FUTURE</span><span>ADVISE. EQUIP. TRANSFORM.</span></div>',
