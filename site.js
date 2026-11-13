@@ -4,7 +4,7 @@
 var EMAIL='hello@empoweredstrategies.ai';
 var ROOT='https://www.empoweredstrategies.ai';
 // Approved brand asset maintained in the Think Tank partner library.
-var BRAND_ASSET='https://www.thinktankcircle.org/images/partners/empowered-strategies.webp';
+var BRAND_ASSET='/assets/empowered-logo.webp';
 var PHOTO_1='/assets/cover-portrait.svg';
 var PHOTO_2='/assets/education-profile.svg';
 var PHOTO_3='/assets/academy-workshop.svg';
