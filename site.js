@@ -205,7 +205,7 @@ var titles={
  '/solutions/research-mel':'Education Research & MEL',
  '/solutions/education-leadership':'Education Leadership Excellence'
 };
-function routePath(){var path=window.location.pathname.replace(/\/+$/,'')||'/';return path}
+function routePath(){var path=window.location.pathname.replace(/\/+$/,'')||'/';return path==='/home'?'/':path}
 function render(){
  var p=routePath();
  var pageTypes={'/':'home','/about-us':'about','/what-we-do':'services','/solutions':'solutions','/learning-academy':'academy','/research-insights':'research','/our-impact':'impact','/partnerships':'partnerships','/contact':'contact'};
