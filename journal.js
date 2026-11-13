@@ -65,8 +65,8 @@ function home(main){
  '<div class="hf-hero-inner"><div class="hf-hero-copy">',
  '<span class="hf-kicker">EDUCATION STRATEGY / RESEARCH / LEADERSHIP / TRANSFORMATION</span>',
  '<h1 id="home-heading">The future of <em>learning</em> starts <strong>here.</strong></h1>',
- '<p>We help governments, institutions and education leaders navigate change, strengthen capacity and build learning environments ready for the future.</p>',
- '<div class="hf-actions">'+cta('/contact','Request a Strategic Consultation','hf-primary')+cta('/learning-academy','Explore Our Programmes','hf-secondary')+'</div>',
+ '<p>Education systems are at a defining moment. We help governments, institutions and education leaders navigate change, strengthen institutional capacity and build learning environments ready for the future.</p>',
+ '<div class="hf-actions">'+cta('/contact','Request a Strategic Consultation','hf-primary')+cta('/what-we-do','Explore What We Do','hf-secondary')+'</div>',
  '</div><aside class="hf-hero-side" aria-label="Our education priorities"><div class="hf-side-intro">',
  '<div class="hf-campus-photo">'+img('campus','','solution-systems.svg')+'</div>',
  '<p>Evidence-led strategy, institutional capacity and meaningful transformation in education.</p></div>',
@@ -128,14 +128,7 @@ function bespokeHero(main,page){
  '<div class="z-page-bottom"><span>ADVISE / EQUIP / TRANSFORM</span><span>INSTITUTIONAL TRANSFORMATION THROUGH EVIDENCE</span></div></div></section>';
 }
 function redesignServices(main){
- var areas=[
-  ['Education Strategy & Policy','/what-we-do#service-1','layers','Policy design, strategic planning and education systems advisory.'],
-  ['Institutional Transformation','/what-we-do#service-2','school','Diagnostics, governance and institutional improvement.'],
-  ['Leadership Development','/what-we-do#service-3','people','Leadership and board advisory for stronger institutions.'],
-  ['Professional Learning','/what-we-do#service-4','book','Educator development, professional learning and capacity building.'],
-  ['Research & Evidence','/what-we-do#service-5','chart','Research, evaluation, monitoring and evidence use.'],
-  ['Digital Learning & Innovation','/what-we-do#service-6','laptop','Responsible AI, digital education and future-ready learning.']
- ];
+ var areas=[["Education Strategy & Systems Transformation","layers","We support governments and education institutions in designing strategies, strengthening education systems and implementing meaningful reform.",["Education policy and strategy development","Institutional strategic planning","Education systems transformation","Curriculum and learning systems advisory","Education sector assessments","Education reform programme design","Digital education strategy"]],["Research, MEL & Evidence Use","chart","We generate and translate evidence to support better education decisions, stronger programmes and measurable impact.",["Education research and policy analysis","Monitoring, Evaluation and Learning","Baseline and endline assessments","Programme and impact evaluations","Learning outcome measurement","Research dissemination","Evidence-to-policy advisory"]],["Training & Capacity Building","book","We develop the knowledge, professional skills and institutional capabilities needed to improve education delivery.",["AI literacy for educators","Teacher professional development","Education leadership programmes","Digital pedagogy","Instructional leadership","Research and evidence literacy","Training of Trainers"]],["Leadership & Board Advisory","people","We strengthen education governance and equip institutional leaders to navigate complexity, lead change and build high-performing institutions.",["School board advisory","University governance","Executive leadership development","Institutional performance reviews","Leadership coaching","Organisational change management","Governance and accountability frameworks"]],["Partnership Brokering & Mediation","school","We connect stakeholders, facilitate collaboration and support partnerships that advance education outcomes.",["Institutional partnership development","Stakeholder engagement","Strategic collaboration","Education programme partnerships","Multi-institutional coordination","Partnership facilitation and mediation"]],["AI Literacy & Future of Learning","laptop","We help education institutions and professionals understand, adopt and responsibly integrate artificial intelligence into education.",["Institutional AI readiness assessments","AI literacy for educators","AI adoption strategies","Responsible AI policies","AI-enabled teaching and learning","Education technology integration","Future skills development"]]];
  function pict(kind){
   var paths={
    layers:'<path d="m12 2 10 5-10 5L2 7l10-5ZM2 12l10 5 10-5M2 17l10 5 10-5"/>',
@@ -149,10 +142,12 @@ function redesignServices(main){
   };
   return '<svg viewBox="0 0 24 24" width="37" height="37" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(paths[kind]||paths.layers)+'</svg>';
  }
- var cards=areas.map(function(a,i){return '<a id="service-'+(i+1)+'" class="ww-service" href="'+a[1]+'" aria-label="'+a[0]+': '+a[3]+'"><span class="ww-service-icon">'+pict(a[2])+'</span><span class="ww-service-name">'+a[0]+'</span><span class="ww-service-arrow">↗</span></a>';}).join('');
+ var cards=areas.map(function(a,i){return '<a class="ww-service" href="#service-'+(i+1)+'"><span class="ww-service-icon">'+pict(a[1])+'</span><span class="ww-service-name">'+a[0]+'</span><span class="ww-service-arrow">'+arrow()+'</span></a>';}).join('');
+ var detail=areas.map(function(a,i){return '<details id="service-'+(i+1)+'" class="ww-detailed-service"><summary><span>0'+(i+1)+'</span><strong>'+a[0]+'</strong><span>+</span></summary><div><p>'+a[2]+'</p><ul>'+a[3].map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul><a href="/contact?subject='+encodeURIComponent(a[0])+'">Discuss this service '+arrow()+'</a></div></details>';}).join('');
  main.innerHTML=[
  '<section class="ww-intro"><div class="ww-intro-copy"><span class="ww-kicker">OUR WORK IN FOCUS</span><div class="ww-intro-row"><h1>We turn<br>strategy into<br><em>measurable<br>change.</em></h1><p>A suite of services that strengthen education from policy to practice.</p></div></div><div class="ww-intro-photo">'+img('learning','','academy-workshop.svg')+'</div></section>',
  '<section class="ww-services" aria-label="Six areas of expertise">'+cards+'</section>',
+ '<section class="ww-details"><span class="ww-kicker">SIX AREAS OF EXPERTISE</span><h2>Explore our services.</h2><div class="ww-details-grid">'+detail+'</div></section>',
  '<section class="ww-statement"><div><span class="ww-kicker">WHAT WE DO</span><h2>Practical solutions<br>for stronger<br><em>education systems.</em></h2></div><p>We work with governments, institutions and education leaders to design, implement and strengthen the systems, people and programmes that drive better learning and lasting impact.</p></section>',
  '<section class="ww-approach"><div class="ww-approach-photo">'+img('leadership','','solution-leadership.svg')+'</div><div class="ww-approach-copy"><span class="ww-kicker">OUR APPROACH</span><h2>How We Create<br><em>Impact.</em></h2><div class="ww-principles"><div>'+pict('target')+'<p>Evidence-led<br>and practical.</p></div><div>'+pict('layers')+'<p>Context-driven<br>and sustainable.</p></div><div>'+pict('people')+'<p>People and<br>systems focused.</p></div></div></div></section>',
  '<section class="ww-reach"><div class="ww-reach-heading"><span class="ww-kicker">OUR REACH</span><h2>Across the<br>education<br><em>journey.</em></h2></div><div class="ww-reach-steps"><div>'+pict('school')+'<span>Policy &<br>Planning</span></div><b>→</b><div>'+pict('people')+'<span>Institutional<br>Strengthening</span></div><b>→</b><div>'+pict('school')+'<span>People &<br>Capability</span></div><b>→</b><div>'+pict('sliders')+'<span>Implementation<br>& Scale</span></div></div></section>',
@@ -171,14 +166,7 @@ function redesignSolutions(main){
   settings:'<circle cx="12" cy="12" r="3"/><path d="M10 2h4l.6 2.5 2.2.9 2.2-1.3 2.8 2.8-1.3 2.2.9 2.2L24 12l-2.6.7-.9 2.2 1.3 2.2-2.8 2.8-2.2-1.3-2.2.9L14 22h-4l-.6-2.5-2.2-.9-2.2 1.3-2.8-2.8 1.3-2.2-.9-2.2L0 12l2.6-.7.9-2.2-1.3-2.2L5 4.1l2.2 1.3 2.2-.9L10 2Z"/>'
  };
  function svg(name){return '<svg aria-hidden="true" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">'+(iconPaths[name]||iconPaths.layers)+'</svg>';}
- var offerings=[
-  {title:'Education<br>Strategy &amp; Policy',description:'Evidence-based strategies and policy support for stronger education systems.',photo:'research',icon:'layers',link:'/what-we-do#service-1'},
-  {title:'Institutional<br>Transformation',description:'Capacity building and systems strengthening for education institutions.',photo:'institute',icon:'school',link:'/what-we-do#service-2'},
-  {title:'Leadership<br>Development',description:'Programmes that equip education leaders to lead, adapt and create impact.',photo:'leadership',icon:'people',link:'/what-we-do#service-3'},
-  {title:'Professional<br>Learning',description:'Practical, context-relevant training for teachers and education professionals.',photo:'workshop',icon:'book',link:'/learning-academy'},
-  {title:'Research &amp;<br>Evidence',description:'Research, data and insights that inform better decisions and stronger outcomes.',photo:'analysis',icon:'chart',link:'/what-we-do#service-5'},
-  {title:'Digital Learning<br>&amp; Innovation',description:'Solutions that integrate technology to improve access, quality and learning.',photo:'strategy',icon:'laptop',link:'/solutions/ai-ready-education-institution'}
- ];
+ var offerings=[{"title":"The AI-Ready<br>Education Institution","description":"A complete pathway to responsible AI adoption, institutional readiness, governance and educator training.","photo":"strategy","icon":"laptop","link":"/solutions/ai-ready-education-institution"},{"title":"Education Institutional<br>Transformation","description":"Institutional diagnostics, transformation roadmaps, leadership alignment and implementation support.","photo":"institute","icon":"school","link":"/solutions/institutional-transformation"},{"title":"Education Leadership<br>Excellence","description":"Developing leaders who can shape the future of education and strengthen governance.","photo":"leadership","icon":"people","link":"/solutions/education-leadership"},{"title":"Research &amp;<br>Impact Measurement","description":"Research design, monitoring, evaluation, learning and practical evidence for better decisions.","photo":"analysis","icon":"chart","link":"/solutions/research-mel"},{"title":"Educator Professional<br>Development","description":"Structured learning in AI literacy, digital pedagogy, assessment and professional effectiveness.","photo":"workshop","icon":"book","link":"/learning-academy"},{"title":"Education Partnership<br>Development","description":"Partnership mapping, stakeholder engagement and collaboration frameworks.","photo":"team","icon":"layers","link":"/partnerships"}];
  var cards=offerings.map(function(c,i){
   return '<a class="sol-card" href="'+c.link+'" aria-label="'+c.title.replace(/<[^>]*>/g,'')+'"><div class="sol-card-image">'+img(c.photo,'','solution-systems.svg')+'</div><div class="sol-card-shade"></div><div class="sol-card-content"><span class="sol-card-icon">'+svg(c.icon)+'</span><h3>'+c.title+'</h3><p>'+c.description+'</p></div><span class="sol-card-arrow">'+arrow()+'</span></a>';
  }).join('');
@@ -193,7 +181,7 @@ function redesignSolutions(main){
  '<p>We design and implement evidence-based solutions that strengthen learning, build institutional capacity and create lasting change across Africa.</p>',
  '<div class="sol-hero-actions"><a href="/contact" class="sol-button sol-button-light">Request a Consultation '+arrow()+'</a><a href="/what-we-do" class="sol-button sol-button-outline">Explore Our Work '+arrow()+'</a></div></div>',
  '<div class="sol-hero-photo"><div class="sol-red-orbit"></div>'+img('learning','','education-profile.svg')+'</div></section>',
- '<section class="sol-offerings"><div class="sol-intro"><div><span class="sol-kicker">OUR SOLUTIONS</span><h2>What<br>We <em>Offer.</em></h2></div><p>A suite of services that translate research, policy and practice into real improvements in learning, teaching and education system performance.</p></div>',
+ '<section class="sol-offerings"><div class="sol-intro"><div><span class="sol-kicker">OUR SOLUTIONS</span><h2>What<br>We <em>Offer.</em></h2></div><p>We turn complex education challenges into structured programmes, institutional solutions and practical pathways for change. Our solutions help education organisations assess their current position, strengthen capabilities and achieve clearly defined objectives.</p></div>',
  '<div class="sol-grid">'+cards+'</div></section>',
  '<section class="sol-process"><div class="sol-process-intro"><span class="sol-kicker">OUR PROCESS</span><div><h2>How We<br><em>Work.</em></h2><p>A collaborative, evidence-led process that turns complex education challenges into practical, scalable solutions.</p></div></div><div class="sol-process-flow">'+process+'</div></section>',
  '<section class="sol-closing"><h2>Let’s build stronger<br>education <em>together.</em></h2><a href="/contact" class="sol-button sol-button-light">Request a Consultation '+arrow()+'</a><img src="/assets/home-solutions-building.webp" alt="" loading="lazy"></section>'
@@ -251,7 +239,7 @@ function redesignAbout(main){
  main.innerHTML=[
  '<section class="ab-hero" aria-labelledby="ab-hero-title"><div class="ab-hero-inner">',
  '<div class="ab-hero-copy"><span class="ab-eyebrow">ABOUT US</span><h1 id="ab-hero-title">Education<br>systems that<br><em>work for Africa.</em></h1>',
- '<p>EmpowerED Strategies is an education strategy, research and implementation partner working with institutions, governments and education leaders across Africa.</p>',
+ '<p>EmpowerED Strategies is an education strategy, research and transformation firm committed to reshaping the future of education through evidence, innovation, leadership and institutional capacity building.</p>',
  '<div class="ab-actions"><a href="#our-story">Our Approach <span class="ab-arrow">↗</span></a><a href="/what-we-do">Our Work <span class="ab-arrow">↗</span></a></div></div>',
  '<div class="ab-collage" aria-label="Education and institutional leadership"><div class="ab-red-ring" aria-hidden="true"></div>',
  '<div class="ab-frame ab-frame-main">'+img('learning','','education-profile.svg')+'</div>',
@@ -259,14 +247,14 @@ function redesignAbout(main){
  '<div class="ab-frame ab-frame-leader"><img src="/assets/solutions-leadership.webp" alt="African education leader speaking at a professional discussion" loading="eager"></div>',
  '</div></div></section>',
  '<section class="ab-foundation" aria-label="Our mission, vision and values">',
- '<div><span class="ab-foundation-icon">◎</span><div><h2>OUR MISSION</h2><p>To strengthen education systems through evidence, strategy and practical implementation.</p></div></div>',
- '<div><span class="ab-foundation-icon">◉</span><div><h2>OUR VISION</h2><p>An Africa where people, institutions and systems enable quality learning and equitable opportunities for all.</p></div></div>',
- '<div><span class="ab-foundation-icon">◇</span><div><h2>OUR VALUES</h2><p>Evidence-led <span>•</span> Collaborative<br>Contextual <span>•</span> Practical <span>•</span> Lasting Impact</p></div></div>',
+ '<div><span class="ab-foundation-icon">◎</span><div><h2>OUR MISSION</h2><p>To strengthen education systems and institutions through evidence-led strategy, research, leadership development, professional learning and responsible innovation.</p></div></div>',
+ '<div><span class="ab-foundation-icon">◉</span><div><h2>OUR VISION</h2><p>An education landscape where every institution has the leadership, knowledge, systems and capabilities to deliver meaningful learning opportunities and prepare people for the future.</p></div></div>',
+ '<div><span class="ab-foundation-icon">◇</span><div><h2>OUR VALUES</h2><p>Evidence Before Assumptions; Excellence in Practice; Human-Centred Transformation; Integrity and Accountability; Collaboration and Partnership; Innovation with Purpose; Inclusion and Equity</p></div></div>',
  '</section>',
  '<section class="ab-story" id="our-story"><div class="ab-story-photo"><img src="/assets/home-hero-campus.webp" alt="Students walking into a contemporary African university" loading="lazy"></div>',
  '<div class="ab-story-copy"><span class="ab-eyebrow">OUR STORY</span><h2>From insight to<br>real, <em>sustained change.</em></h2>',
- '<p>We were founded on a simple belief: that education can be a powerful lever for people, institutions and societies to thrive.</p>',
- '<p>Today, we work at the intersection of strategy, research and implementation to turn that belief into measurable results across Africa.</p></div></section>',
+ '<p>Education is fundamental to economic development, social progress and human potential. Yet gaps remain between the aspirations of education policies and the realities experienced by institutions, educators and learners.</p>',
+ '<p>We connect strategy, evidence, people and implementation, listening to each institution’s distinct objectives, resources and challenges before developing practical solutions.</p></div></section>',
  '<section class="ab-difference"><span class="ab-eyebrow">WHAT SETS US APART</span>',
  '<div class="ab-difference-grid"><article><span class="ab-difference-icon">▥</span><h3>Evidence-Led</h3><p>We ground our work in research, data and real-world insight.</p></article>',
  '<article><span class="ab-difference-icon">◇</span><h3>Practical &amp; Contextual</h3><p>Solutions designed for Africa’s diverse education realities.</p></article>',
